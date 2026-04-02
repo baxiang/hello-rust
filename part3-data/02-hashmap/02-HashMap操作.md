@@ -1,6 +1,38 @@
-## 13.3 插入和访问元素
+## 13.4 entry API：插入或更新的神器
 
-### 插入元素（insert）
+### 为什么需要 entry？
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let text = "hello world wonderful world";
+    let mut word_count = HashMap::new();
+
+    // ❌ 冗长的写法：需要两次查找
+    for word in text.split_whitespace() {
+        match word_count.get(word) {
+            Some(count) => {
+                let new_count = count + 1;
+                word_count.insert(word.to_string(), new_count);
+            }
+            None => {
+                word_count.insert(word.to_string(), 1);
+            }
+        }
+    }
+
+    // ✅ 使用 entry：一次查找，简洁高效
+    let mut word_count = HashMap::new();
+    for word in text.split_whitespace() {
+        *word_count.entry(word.to_string()).or_insert(0) += 1;
+    }
+
+    println!("{:?}", word_count);
+}
+```
+
+### entry API 详解
 
 ```rust
 use std::collections::HashMap;
@@ -8,244 +40,98 @@ use std::collections::HashMap;
 fn main() {
     let mut scores = HashMap::new();
 
-    // insert 返回 Option<V>
-    // 如果键已存在，返回旧值（Some）
-    // 如果键不存在，返回 None
-    let old = scores.insert(String::from("Blue"), 10);
-    println!("旧值：{:?}", old);  // None
+    // or_insert - 如果键不存在则插入默认值
+    let score = scores.entry("Blue".to_string()).or_insert(0);
+    *score += 10;  // 通过可变引用修改
 
-    // 再次插入相同的键，会覆盖
-    let old = scores.insert(String::from("Blue"), 20);
-    println!("旧值：{:?}", old);  // Some(10)
+    // 再次调用 or_insert，不会覆盖已存在的值
+    let score = scores.entry("Blue".to_string()).or_insert(100);
+    println!("Blue 分数：{}", score);  // 10（不是 100）
 
-    println!("当前：{:?}", scores);  // {"Blue": 20}
+    println!("{:?}", scores);  // {"Blue": 10}
 }
 ```
 
-### 访问元素（get）
+### entry 的其他方法
 
 ```rust
 use std::collections::HashMap;
 
 fn main() {
-    let mut scores = HashMap::new();
-    scores.insert(String::from("Blue"), 10);
-    scores.insert(String::from("Yellow"), 50);
+    let mut map: HashMap<String, i32> = HashMap::new();
 
-    // get 返回 Option<&V>（值的引用）
-    let blue_score = scores.get(&String::from("Blue"));
-    println!("Blue 分数：{:?}", blue_score);  // Some(10)
+    // or_insert_with - 使用闭包提供默认值
+    let val = map.entry("key".to_string()).or_insert_with(|| {
+        println!("计算默认值...");
+        42
+    });
 
-    // 使用 match 处理
-    match scores.get(&String::from("Red")) {
-        Some(score) => println!("Red 分数：{}", score),
-        None => println!("Red 不在 HashMap 中"),
+    // or_default - 使用 Default trait 的默认值
+    let counts: HashMap<String, i32> = HashMap::new();
+    let count = counts.get("missing").unwrap_or(&i32::default());
+
+    // and_modify - 如果键存在则修改
+    map.entry("key".to_string()).and_modify(|v| *v += 1);
+
+    // or_insert + and_modify 组合
+    map.entry("count".to_string())
+        .or_insert(0)
+        .then(|v| *v += 1);  // 先插入 0，再加 1
+
+    // entry 返回的枚举
+    use std::collections::hash_map::Entry;
+
+    match map.entry("test".to_string()) {
+        Entry::Occupied(entry) => {
+            println!("键已存在，值：{}", entry.get());
+        }
+        Entry::Vacant(entry) => {
+            entry.insert(100);
+            println!("键不存在，已插入");
+        }
     }
-
-    // 使用 if let
-    if let Some(score) = scores.get(&String::from("Yellow")) {
-        println!("Yellow 分数：{}", score);
-    }
-
-    // 可以使用借用的键（不需要所有权）
-    let key = String::from("Blue");
-    let score = scores.get(&key);  // &key 是 &String
-    println!("分数：{:?}", score);
-
-    // key 仍然可用
-    println!("键：{}", key);
 }
 ```
 
-### contains_key 检查键是否存在
+### 实战：词频统计
 
 ```rust
 use std::collections::HashMap;
 
-fn main() {
-    let mut scores = HashMap::new();
-    scores.insert("Blue", 10);
-    scores.insert("Yellow", 50);
+fn count_words(text: &str) -> HashMap<String, usize> {
+    let mut counts = HashMap::new();
 
-    // contains_key 返回 bool
-    if scores.contains_key(&"Blue") {
-        println!("Blue 在 HashMap 中");
+    for word in text.split_whitespace() {
+        // 清理单词：转小写，去除标点
+        let cleaned: String = word
+            .chars()
+            .filter(|c| c.is_alphanumeric())
+            .collect::<String>()
+            .to_lowercase();
+
+        if !cleaned.is_empty() {
+            *counts.entry(cleaned).or_insert(0) += 1;
+        }
     }
 
-    if !scores.contains_key(&"Red") {
-        println!("Red 不在 HashMap 中");
+    counts
+}
+
+fn main() {
+    let text = "Hello world! Hello Rust. Rust is great, Rust is fast!";
+
+    let counts = count_words(text);
+
+    // 按频率排序输出
+    let mut items: Vec<_> = counts.iter().collect();
+    items.sort_by(|a, b| b.1.cmp(a.1));
+
+    println!("词频统计:");
+    for (word, count) in items {
+        println!("  {}: {}", word, count);
     }
 }
 ```
-
-
-
-
-
-
-## 13.5 删除元素
-
-### remove 方法
-
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut scores = HashMap::new();
-    scores.insert("Blue", 10);
-    scores.insert("Yellow", 50);
-    scores.insert("Red", 30);
-
-    println!("删除前：{:?}", scores);
-
-    // remove 返回 Option<V>
-    // 如果键存在，返回 Some(值)
-    // 如果键不存在，返回 None
-    let removed = scores.remove(&"Blue");
-    println!("删除 Blue: {:?}", removed);  // Some(10)
-
-    let removed = scores.remove(&"Green");
-    println!("删除 Green: {:?}", removed);  // None
-
-    println!("删除后：{:?}", scores);  // {"Yellow": 50, "Red": 30}
-}
-```
-
-### 保留满足条件的元素（retain）
-
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut scores = HashMap::new();
-    scores.insert("Alice", 90);
-    scores.insert("Bob", 85);
-    scores.insert("Charlie", 70);
-    scores.insert("David", 95);
-
-    // retain - 保留满足条件的元素
-    scores.retain(|name, &score| score >= 80);
-
-    println!("80 分以上：{:?}", scores);
-    // {"Alice": 90, "Bob": 85, "David": 95}
-}
-```
-
-### 清空所有元素
-
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut scores = HashMap::new();
-    scores.insert("Blue", 10);
-    scores.insert("Yellow", 50);
-
-    println!("清空前长度：{}", scores.len());
-
-    scores.clear();
-
-    println!("清空后长度：{}", scores.len());  // 0
-    println!("清空后：{:?}", scores);  // {}
-}
-```
-
-
-
-
-
-
-## 13.6 遍历 HashMap
-
-### 基本遍历
-
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut scores = HashMap::new();
-    scores.insert("Blue", 10);
-    scores.insert("Yellow", 50);
-    scores.insert("Red", 30);
-
-    // 遍历所有键值对（借用）
-    for (key, value) in &scores {
-        println!("{}: {}", key, value);
-    }
-
-    // 遍历所有键值对（可变借用）
-    for (key, value) in &mut scores {
-        *value += 10;
-    }
-    println!("加分后：{:?}", scores);
-
-    // 获取所有权遍历（消耗 HashMap）
-    for (key, value) in scores {
-        println!("{} 的分数是 {}", key, value);
-    }
-    // scores 已移动，不能再使用
-}
-```
-
-### keys() 和 values() 迭代器
-
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut scores = HashMap::new();
-    scores.insert("Blue", 10);
-    scores.insert("Yellow", 50);
-    scores.insert("Red", 30);
-
-    // 只遍历键
-    println!("所有队伍:");
-    for team in scores.keys() {
-        println!("  {}", team);
-    }
-
-    // 只遍历值
-    println!("所有分数:");
-    for score in scores.values() {
-        println!("  {}", score);
-    }
-
-    // 收集键或值
-    let teams: Vec<&str> = scores.keys().copied().collect();
-    let scores_vec: Vec<i32> = scores.values().copied().collect();
-}
-```
-
-### 注意：无序性
-
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut map = HashMap::new();
-    map.insert(1, "one");
-    map.insert(2, "two");
-    map.insert(3, "three");
-
-    // HashMap 不保证遍历顺序
-    // 每次运行的顺序可能不同！
-    for (k, v) in &map {
-        println!("{}: {}", k, v);
-    }
-
-    // 如果需要有序遍历，先收集再排序
-    let mut items: Vec<_> = map.iter().collect();
-    items.sort_by(|a, b| a.0.cmp(b.0));
-
-    println!("排序后:");
-    for (k, v) in items {
-        println!("{}: {}", k, v);
-    }
-}
-```
-
-
-
 
 
 

@@ -1,80 +1,101 @@
-## 13.2 创建 HashMap
+## 13.1 为什么需要 HashMap？
 
-### 导入 HashMap
-
-```rust
-// HashMap 不在标准库的预导入模块中
-// 必须显式导入
-use std::collections::HashMap;
-
-fn main() {
-    let mut map = HashMap::new();
-}
-```
-
-### 创建 HashMap 的五种方式
+### 问题场景
 
 ```rust
-use std::collections::HashMap;
+// 问题：存储和查找学生的分数
+// 方案 1：使用 Vec 存储元组（低效）
+let students: Vec<(String, i32)> = vec![
+    (String::from("Alice"), 90),
+    (String::from("Bob"), 85),
+    (String::from("Charlie"), 95),
+];
 
-fn main() {
-    // 方式 1：使用 new() 创建空的 HashMap
-    let mut scores = HashMap::new();
-    scores.insert(String::from("Blue"), 10);
-    scores.insert(String::from("Yellow"), 50);
-
-    // 方式 2：使用宏直接初始化（需要多次 insert）
-    let mut scores = HashMap::new();
-    scores.insert("Blue", 10);
-    scores.insert("Yellow", 50);
-
-    // 方式 3：从迭代器 collect（推荐）
-    let teams = vec![String::from("Blue"), String::from("Yellow")];
-    let initial_scores = vec![10, 50];
-
-    let scores: HashMap<_, _> = teams
-        .into_iter()
-        .zip(initial_scores.into_iter())
-        .collect();
-
-    // 方式 4：使用数组和 collect
-    let scores: HashMap<_, _> = [
-        ("Blue", 10),
-        ("Yellow", 50),
-        ("Red", 30),
-    ].into_iter()
-    .collect();
-
-    // 方式 5：预分配容量
-    let mut large_map: HashMap<i32, String> = HashMap::with_capacity(1000);
-
-    println!("scores: {:?}", scores);
-    println!("large_map capacity: {}", large_map.capacity());
+// 查找 Alice 的分数需要遍历整个 Vec
+fn find_score(students: &[(String, i32)], name: &str) -> Option<i32> {
+    for (n, score) in students {
+        if n == name {
+            return Some(*score);
+        }
+    }
+    None
 }
+// 时间复杂度：O(n)
+
+// 方案 2：使用 HashMap（高效）
+use std::collections::HashMap;
+let mut scores = HashMap::new();
+scores.insert(String::from("Alice"), 90);
+scores.insert(String::from("Bob"), 85);
+
+let alice_score = scores.get("Alice");  // O(1) 查找！
 ```
 
-### 类型推断
+### HashMap 的核心特点
 
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    // Rust 通常可以推断类型
-    let mut map = HashMap::new();
-    map.insert(1, "one");
-    // 类型推断为 HashMap<i32, &str>
-
-    // 空 HashMap 需要类型标注
-    let mut empty: HashMap<String, i32> = HashMap::new();
-    let mut empty2 = HashMap::<String, i32>::new();
-
-    // 使用下划线占位符
-    let map: HashMap<_, _> = [(1, "one"), (2, "two")].into_iter().collect();
-}
+```
+┌─────────────────────────────────────────────────────┐
+│              HashMap 特点                            │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  核心特性                                            │
+│  ├── 键值对存储（Key-Value）                        │
+│  ├── O(1) 平均时间复杂度查找/插入/删除              │
+│  ├── 键必须唯一（自动去重）                         │
+│  └── 无序存储（不保证插入顺序）                     │
+│                                                     │
+│  与 Vec/数组对比                                     │
+│  ┌────────────┬────────────┬─────────────┐          │
+│  │ 操作       │ Vec/数组   │ HashMap     │          │
+│  ├────────────┼────────────┼─────────────┤          │
+│  │ 按索引访问 │ O(1)       │ N/A         │          │
+│  │ 按键查找   │ O(n)       │ O(1)        │          │
+│  │ 插入       │ O(1)*      │ O(1)        │          │
+│  │ 删除       │ O(n)       │ O(1)        │          │
+│  └────────────┴────────────┴─────────────┘          │
+│  * Vec 末尾插入 O(1)，中间插入 O(n)                  │
+│                                                     │
+│  使用场景                                            │
+│  ✓ 需要通过键快速查找值                             │
+│  ✓ 统计词频/数量                                    │
+│  ✓ 缓存系统                                         │
+│  ✓ 建立映射关系                                     │
+│                                                     │
+└─────────────────────────────────────────────────────┘
 ```
 
+### HashMap 工作原理（简化）
 
+```
+HashMap 使用哈希函数实现快速查找：
 
+┌─────────────────────────────────────────────────────┐
+│              HashMap 内部结构                        │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  键"apple" → 哈希函数 → 哈希值 (如 1726384)         │
+│                      ↓                              │
+│              映射到桶索引 (如 5)                     │
+│                      ↓                              │
+│  桶数组：                                            │
+│  ┌───┬───┬───┬───┬───┬───┬───┐                     │
+│  │ 0 │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ ...                 │
+│  ├───┼───┼───┼───┼───┼───┼───┤                     │
+│  │   │   │   │   │   │ → │   │                     │
+│  └───┴───┴───┴───┴───┴─┬─┴───┘                     │
+│                        ↓                            │
+│                  ┌──────────┐                       │
+│                  │ "apple"  │                       │
+│                  │    5     │                       │
+│                  └──────────┘                       │
+│                                                     │
+│  哈希冲突处理：                                      │
+│  • 链地址法：同一位置存储多个元素（链表）           │
+│  • 开放寻址：寻找下一个空位                         │
+│  • Rust 使用： 开放寻址 + 探测                       │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+```
 
 
 

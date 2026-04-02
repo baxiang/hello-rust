@@ -1,85 +1,44 @@
-## 20.2 模块系统基础
+## 20.1 Crate：最小的编译单元
 
-### 为什么需要模块
-
-```rust
-// 没有模块：所有代码混在一起
-fn process_data() {}
-fn save_file() {}
-fn send_email() {}
-fn validate_user() {}
-// ... 1000 行后
-fn process_data() {}  // ❌ 命名冲突！
-
-// 有模块：代码组织清晰
-mod data {
-    pub fn process() {}
-}
-
-mod file {
-    pub fn save() {}
-}
-
-mod email {
-    pub fn send() {}
-}
-
-mod user {
-    pub fn validate() {}
-}
-```
-
-### 定义模块
-
-```rust
-// 方式 1：内联定义（适合小模块）
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {
-            println!("Added to waitlist");
-        }
-
-        pub fn seat_at_table(table_id: usize) -> usize {
-            println!("Seating at table {}", table_id);
-            table_id
-        }
-    }
-
-    mod serving {
-        fn take_order() {}
-        fn serve_order() {}
-    }
-}
-
-fn main() {
-    // 使用绝对路径
-    front_of_house::hosting::add_to_waitlist();
-
-    // 使用相对路径
-    crate::front_of_house::hosting::add_to_waitlist();
-}
-```
-
-### 模块树结构
+### 什么是 Crate
 
 ```
-crate（根）
-└── front_of_house
-    ├── hosting
-    │   ├── add_to_waitlist
-    │   └── seat_at_table
-    └── serving
-        ├── take_order
-        └── serve_order
-
-关键点：
-• 模块可以嵌套
-• pub 控制可见性
-• 默认所有项都是私有的
+┌─────────────────────────────────────────────────────┐
+│              Crate 是什么                            │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  Crate 是 Rust 最小的编译单元                        │
+│                                                     │
+│  两种类型：                                          │
+│  ┌─────────────────────────────────────────────┐   │
+│  │ 库 Crate (Library Crate)                    │   │
+│  │  - 不能独立运行，提供可复用的代码            │   │
+│  │  - 根文件：src/lib.rs                        │   │
+│  └─────────────────────────────────────────────┘   │
+│  ┌─────────────────────────────────────────────┐   │
+│  │ 二进制 Crate (Binary Crate)                 │   │
+│  │  - 可独立运行的程序                          │   │
+│  │  - 根文件：src/main.rs                       │   │
+│  └─────────────────────────────────────────────┘   │
+│                                                     │
+└─────────────────────────────────────────────────────┘
 ```
 
+### Package：Crate 的容器
 
+```bash
+my_package/                  # 一个 Package
+├── Cargo.toml               # Package 的清单文件
+├── src/
+│   ├── lib.rs               # 库 Crate（可选）
+│   └── main.rs              # 二进制 Crate（可选）
+└── tests/                   # 集成测试
+```
 
+一个 Package 可以包含：
+- 至多一个库 Crate
+- 多个二进制 Crate
+- 但不能只有二进制 Crate 而没有库 Crate
 
 
 
