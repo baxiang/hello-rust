@@ -1,0 +1,47 @@
+## 23.3 move 闭包与线程
+
+### 所有权转移
+
+```rust
+use std::thread;
+
+fn main() {
+    let v = vec![1, 2, 3];
+
+    // move 强制转移所有权到线程
+    let handle = thread::spawn(move || {
+        println!("向量：{:?}", v);
+        // v 现在属于这个线程
+    });
+
+    // println!("{:?}", v);  // ❌ v 已移动
+
+    handle.join().unwrap();
+}
+```
+
+### 环境变量
+
+```rust
+use std::thread;
+
+fn main() {
+    let url = String::from("https://example.com");
+    let api_key = String::from("secret");
+
+    let handle = thread::spawn(move || {
+        // 多个变量被 move
+        println!("访问：{}，密钥：{}", url, api_key);
+    });
+
+    handle.join().unwrap();
+}
+```
+
+---
+
+---
+
+## 下一步
+
+[消息传递](../4-消息传递.md)

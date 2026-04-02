@@ -1,0 +1,73 @@
+## 6.4 while 循环
+
+### 基本用法
+
+```rust
+fn main() {
+    let mut count = 0;
+
+    // 当条件为真时重复执行
+    while count < 5 {
+        println!("count = {}", count);
+        count += 1;
+    }
+
+    println!("循环结束，count = {}", count);
+}
+```
+
+**输出：**
+```
+count = 0
+count = 1
+count = 2
+count = 3
+count = 4
+循环结束，count = 5
+```
+
+### while let（模式匹配循环）
+
+```rust
+fn main() {
+    // 场景 1：弹出栈直到空
+    let mut stack = vec![1, 2, 3, 4, 5];
+
+    while let Some(top) = stack.pop() {
+        println!("弹出：{}", top);
+    }
+    // 输出：5, 4, 3, 2, 1
+
+    // 场景 2：迭代器
+    let mut iter = vec![1, 2, 3].into_iter();
+
+    while let Some(value) = iter.next() {
+        println!("值：{}", value);
+    }
+}
+```
+
+### 无限循环 + break
+
+```rust
+fn main() {
+    let mut count = 0;
+
+    loop {
+        count += 1;
+        println!("count = {}", count);
+
+        if count >= 5 {
+            break;  // 退出循环
+        }
+    }
+}
+```
+
+---
+
+---
+
+## 下一步
+
+[for 循环（最常用）](../5-for 循环（最常用）.md)
