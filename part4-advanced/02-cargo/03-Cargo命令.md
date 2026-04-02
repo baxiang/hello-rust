@@ -92,15 +92,10 @@ cargo verify-project
 cargo metadata
 ```
 
----
 
----
 
-## 下一步
 
-[常用 Crates 推荐](../6-常用 Crates 推荐.md)
 
----
 
 ## 21.6 常用 Crates 推荐
 
@@ -210,16 +205,9 @@ redis = "0.23"
 mongodb = "2"
 ```
 
----
 
----
 
-## 下一步
 
-[构建配置（Profiles）](../7-构建配置（Profiles）.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

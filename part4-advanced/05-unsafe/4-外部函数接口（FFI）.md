@@ -67,10 +67,6 @@ pub extern "C" fn rust_add(a: i32, b: i32) -> i32 {
 // int result = rust_add(2, 3);
 ```
 
----
 
----
 
-## 下一步
 
-[可变静态变量](../5-可变静态变量.md)

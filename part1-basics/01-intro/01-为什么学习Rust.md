@@ -54,16 +54,9 @@ let buffer = String::with_capacity(100);
 | **Cloudflare** | 网络服务、边缘计算 |
 | **Discord** | 读取状态服务 |
 
----
 
----
 
-## 下一步
 
-[安装 Rust](../2-安装 Rust.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

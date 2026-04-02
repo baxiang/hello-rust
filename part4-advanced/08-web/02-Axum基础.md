@@ -49,15 +49,10 @@ cargo run
 # 访问 http://127.0.0.1:3000
 ```
 
----
 
----
 
-## 下一步
 
-[路由](../3-路由.md)
 
----
 
 ## 27.3 路由
 
@@ -123,16 +118,9 @@ async fn show_name(Path(name): Path<String>) -> String {
 }
 ```
 
----
 
----
 
-## 下一步
 
-[请求处理（Extractors）](../4-请求处理（Extractors）.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

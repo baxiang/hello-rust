@@ -66,15 +66,10 @@ Options:
   -V, --version            Print version
 ```
 
----
 
----
 
-## 下一步
 
-[子命令](../4-子命令.md)
 
----
 
 ## 26.4 子命令
 
@@ -151,16 +146,9 @@ cargo run -- list
 cargo run -- remove --id 1
 ```
 
----
 
----
 
-## 下一步
 
-[完整示例：Grep 工具](../5-完整示例：Grep 工具.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

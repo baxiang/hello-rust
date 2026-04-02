@@ -52,15 +52,10 @@ serde = "=1.0.0"   # 精确版本
 serde = "*"        # 任意版本（不推荐）
 ```
 
----
 
----
 
-## 下一步
 
-[依赖管理](../4-依赖管理.md)
 
----
 
 ## 21.4 依赖管理
 
@@ -151,16 +146,9 @@ cargo add serde --git https://github.com/serde-rs/serde
 cargo add serde --optional
 ```
 
----
 
----
 
-## 下一步
 
-[常用 Cargo 命令](../5-常用 Cargo 命令.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

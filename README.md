@@ -2,7 +2,6 @@
 
 > 从零开始系统学习 Rust 编程语言
 
----
 
 ## 教程结构
 
@@ -70,7 +69,6 @@
 | [项目八](part5-projects/08-image-processor/README.md) | 图片处理工具 | 批量处理图片 |
 | [项目九](part5-projects/09-interpreter/README.md) | 简易解释器 | 小型编程语言解释器 |
 
----
 
 ## 快速导航
 
@@ -128,7 +126,6 @@
 - [图片处理工具](part5-projects/08-image-processor/README.md)
 - [简易解释器](part5-projects/09-interpreter/README.md)
 
----
 
 ## 学习建议
 
@@ -153,7 +150,6 @@
 3. 进阶数据处理（项目四、六、七、八）
 4. 挑战系统编程（项目九）
 
----
 
 ## 参考资源
 
@@ -173,7 +169,6 @@
 - [Exercism Rust Track](https://exercism.org/tracks/rust)
 - [Advent of Code](https://adventofcode.com/)
 
----
 
 ## 版本信息
 
@@ -181,6 +176,5 @@
 - 教程版本：2.2
 - 最后更新：2024-01
 
----
 
 *祝学习愉快！*

@@ -196,10 +196,6 @@ curl -X PUT http://localhost:3000/users/1 \
 curl -X DELETE http://localhost:3000/users/1
 ```
 
----
 
----
 
-## 下一步
 
-[中间件](../7-中间件.md)

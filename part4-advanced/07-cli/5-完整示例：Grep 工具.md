@@ -149,10 +149,6 @@ cargo run -- -p "error" -f log.txt -n
 cargo run -- -p "error" -f log.txt -C 2
 ```
 
----
 
----
 
-## 下一步
 
-[交互式 CLI](../6-交互式 CLI.md)

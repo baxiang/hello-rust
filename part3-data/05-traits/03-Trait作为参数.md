@@ -56,15 +56,10 @@ pub fn notify_two<T: Summary, U: Summary>(item1: &T, item2: &U) {
 }
 ```
 
----
 
----
 
-## 下一步
 
-[Trait 约束](../6-Trait 约束.md)
 
----
 
 ## 16.6 Trait 约束
 
@@ -127,16 +122,9 @@ fn main() {
 }
 ```
 
----
 
----
 
-## 下一步
 
-[返回实现 Trait 的类型](../7-返回实现 Trait 的类型.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

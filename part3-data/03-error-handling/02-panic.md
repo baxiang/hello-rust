@@ -131,16 +131,9 @@ fn get_config() -> &'static str {
 }
 ```
 
----
 
----
 
-## 下一步
 
-[Result 枚举：可恢复错误](../4-Result 枚举：可恢复错误.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

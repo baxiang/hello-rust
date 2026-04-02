@@ -66,16 +66,9 @@ unsafe impl Send for MyType {}
 unsafe impl Sync for MyType {}
 ```
 
----
 
----
 
-## 下一步
 
-[完整示例](../9-完整示例.md)
 
----
 
-## 返回
 
-[返回目录](../../README.md)

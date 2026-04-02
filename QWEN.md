@@ -11,7 +11,6 @@
 - **主题**：Rust 编程语言学习
 - **目标读者**：Rust 初学者到进阶开发者
 
----
 
 ## 目录结构
 
@@ -108,7 +107,6 @@ hello-rust/
 └── .claude/               # Claude 配置目录
 ```
 
----
 
 ## 教程章节组织
 
@@ -184,7 +182,6 @@ Rust 类型系统和泛型编程：
 | `08-image-processor/` | 批量处理图片 | Image, Rayon |
 | `09-interpreter/` | 小型编程语言解释器 | 纯 Rust |
 
----
 
 ## 文档风格与格式约定
 
@@ -223,7 +220,6 @@ fn bad_example() { ... }
    - 练习题
    - 小结
 
----
 
 ## 关键内容特点
 
@@ -258,7 +254,6 @@ fn bad_example() { ... }
 - 完整代码
 - 运行效果
 
----
 
 ## 编辑与维护指南
 
@@ -300,7 +295,6 @@ fn bad_example() { ... }
 4. 更新 README.md 的项目列表
 5. 更新此文件的项目列表
 
----
 
 ## 参考资源（教程中引用）
 
@@ -314,7 +308,6 @@ fn bad_example() { ... }
 - Rust 中文社区: https://rustcc.cn/
 - Rust Forum: https://users.rust-lang.org/
 
----
 
 ## 版本信息
 

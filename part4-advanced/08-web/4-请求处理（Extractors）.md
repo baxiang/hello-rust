@@ -77,10 +77,6 @@ async fn create_user(Json(payload): Json<CreateUser>) -> Json<UserResponse> {
 }
 ```
 
----
 
----
 
-## 下一步
 
-[响应处理](../5-响应处理.md)
