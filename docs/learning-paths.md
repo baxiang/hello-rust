@@ -7,6 +7,7 @@
 - [初学者路径（0-2 周）](#初学者路径0-2-周)
 - [进阶路径（3-6 周）](#进阶路径3-6-周)
 - [实战路径（7-12 周）](#实战路径7-12-周)
+- [现代实践路径（13-15 周）](#现代实践路径13-15-周)
 - [快速路径](#快速路径有编程经验)
 - [特定目标路径](#特定目标路径)
 
@@ -458,10 +459,103 @@
 
 ---
 
+## 现代实践路径（13-15 周）
+
+**适合人群**：已完成实战路径，想要掌握 Rust 最新技术  
+**学习目标**：掌握 Rust 2024 Edition、异步编程、WebAssembly
+
+### 第十三周：Rust 2024 Edition
+
+#### Day 85-86：Edition 机制与新特性
+- **[第 29 章](../part6-modern/01-rust-2024/README.md)**：Rust 2024 Edition（4 小时）
+  - 理解 Edition 机制和演进策略
+  - 学习异步闭包、impl Trait 增强、模式匹配改进
+  - 了解迁移策略和最佳实践
+
+#### Day 87-89：现代 Crate 与工具链
+- **[第 29 章](../part6-modern/01-rust-2024/README.md)**：现代 Crate 推荐（3 小时）
+  - 错误处理：thiserror + anyhow
+  - 异步运行时：Tokio
+  - Web 框架：Axum
+  - CLI：clap
+- **[第 29 章](../part6-modern/01-rust-2024/README.md)**：工具链使用（2 小时）
+  - rustup、cargo、rust-analyzer
+  - CI/CD 配置
+  - 开发工作流优化
+
+#### Day 90-91：迁移实践
+- 将一个 Rust 2021 项目迁移到 2024 Edition
+- 使用新特性改进代码
+- 完成迁移验证和测试
+
+### 第十四周：异步编程
+
+#### Day 92-94：异步基础与 Future
+- **[第 30 章](../part6-modern/02-async/README.md)**：异步基础（3 小时）
+  - 理解异步编程的必要性
+  - 同步 vs 异步 vs 多线程对比
+  - 学习第一个异步程序
+- **[第 30 章](../part6-modern/02-async/README.md)**：Future 与 async/await（3 小时）
+  - Future trait 机制
+  - async/await 语法
+  - Pin 与 Unpin 概念
+
+#### Day 95-97：Tokio 运行时
+- **[第 30 章](../part6-modern/02-async/README.md)**：Tokio 运行时（4 小时）
+  - 运行时配置（多线程 vs 单线程）
+  - 任务调度和 I/O 驱动
+  - 异步网络和文件 I/O
+  - 定时器和同步原语
+
+#### Day 98-100：异步模式
+- **[第 30 章](../part6-modern/02-async/README.md)**：异步模式（3 小时）
+  - Stream 和异步迭代器
+  - 异步通道（mpsc、oneshot、broadcast）
+  - 异步锁（Mutex、RwLock、Semaphore）
+  - select! 宏和任务取消
+
+#### Day 101：异步实战
+- 实现异步 HTTP 客户端
+- 编写并发文件处理器
+- 使用异步数据库操作
+
+### 第十五周：WebAssembly
+
+#### Day 102-104：WASM 基础
+- **[第 31 章](../part6-modern/03-webassembly/README.md)**：WASM 基础（3 小时）
+  - 理解 WebAssembly 概念和优势
+  - Rust 编译到 WASM
+  - wasm-pack 工具使用
+  - 创建第一个 WASM 应用
+
+#### Day 105-107：wasm-bindgen
+- **[第 31 章](../part6-modern/03-webassembly/README.md)**：wasm-bindgen（4 小时）
+  - JavaScript 互操作
+  - 类型转换和结构体导出
+  - DOM 操作
+  - 异步操作
+
+#### Day 108-110：实战项目
+- **[第 31 章](../part6-modern/03-webassembly/README.md)**：实战项目（5 小时）
+  - 实现图像处理 Web 应用
+  - WASM vs JavaScript 性能对比
+  - 性能优化技巧
+
+### 现代实践阶段检查点
+- [ ] 理解 Rust 2024 Edition 机制
+- [ ] 掌握现代 crate 生态
+- [ ] 熟练使用 Tokio 运行时
+- [ ] 能够编写异步程序
+- [ ] 理解 WebAssembly 基础
+- [ ] 完成 WASM 实战项目
+
+---
+
 ## 下一步
 
 完成学习路径后：
 1. 阅读 [前置知识图谱](./prerequisites.md) 了解知识依赖
 2. 查看 [常见问题](./FAQ.md) 解决疑惑
 3. 选择一个 [项目实战](../part5-projects/) 开始实践
-4. 参与 Rust 社区，持续学习
+4. 学习 [现代实践](../part6-modern/) 掌握最新技术
+5. 参与 Rust 社区，持续学习

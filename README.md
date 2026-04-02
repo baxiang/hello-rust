@@ -5,7 +5,7 @@
 
 ## 教程结构
 
-本教程共 28 章 + 9 个实战项目，分为五个部分：
+本教程共 31 章 + 9 个实战项目，分为六个部分：
 
 ### 第一部分：基础入门
 
@@ -69,6 +69,14 @@
 | [项目八](part5-projects/08-image-processor/README.md) | 图片处理工具 | 批量处理图片 |
 | [项目九](part5-projects/09-interpreter/README.md) | 简易解释器 | 小型编程语言解释器 |
 
+### 第六部分：现代实践
+
+| 章节 | 标题 | 说明 |
+|------|------|------|
+| [第 29 章](part6-modern/01-rust-2024/README.md) | Rust 2024 Edition | 新特性、现代 crate、工具链 |
+| [第 30 章](part6-modern/02-async/README.md) | 异步编程 | Future、async/await、Tokio 运行时 |
+| [第 31 章](part6-modern/03-webassembly/README.md) | WebAssembly | WASM 基础、wasm-bindgen、实战项目 |
+
 
 ## 快速导航
 
@@ -126,6 +134,11 @@
 - [图片处理工具](part5-projects/08-image-processor/README.md)
 - [简易解释器](part5-projects/09-interpreter/README.md)
 
+### 现代实践
+- [Rust 2024 Edition](part6-modern/01-rust-2024/README.md)
+- [异步编程](part6-modern/02-async/README.md)
+- [WebAssembly](part6-modern/03-webassembly/README.md)
+
 
 ## 学习建议
 
@@ -150,6 +163,11 @@
 3. 进阶数据处理（项目四、六、七、八）
 4. 挑战系统编程（项目九）
 
+### 现代实践路线
+1. 学习 Rust 2024 Edition 新特性（第 29 章）
+2. 掌握异步编程（第 30 章）
+3. 探索 WebAssembly 应用（第 31 章）
+
 
 ## 参考资源
 
@@ -172,9 +190,9 @@
 
 ## 版本信息
 
-- 最低 Rust 版本：1.75+
-- 教程版本：2.2
-- 最后更新：2024-01
+- 最低 Rust 版本：1.75+（现代实践部分需要 1.85+）
+- 教程版本：2.3
+- 最后更新：2025-01
 
 
 *祝学习愉快！*
