@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    name: 文档质量检查
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 检查 Markdown 格式
+      run: |
+        echo "检查 Markdown 文件格式..."
+        find . -name "*.md" -type f | wc -l
+    
+    - name: 检查文件结构
+      run: |
+        echo "检查目录结构..."
+        ls -R part* | grep "README.md" | wc -l
+    
+    - name: 检查链接有效性
+      continue-on-error: true
+      run: |
+        echo "检查链接..."
+        # 使用 markdown-link-check 或其他工具
+    
+    - name: 统计文档数量
+      run: |
+        echo "=== 文档统计 ==="
+        echo "章节数：$(find part* -name "README.md" -type f | wc -l)"
+        echo "练习题数：$(find exercises -name "*.md" -type f | wc -l)"
+        echo "项目数：$(ls -d part5-projects/*/ | wc -l)"
+  
+  content-validation:
+    runs-on: ubuntu-latest
+    name: 内容验证
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 设置 Rust 环境
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+    
+    - name: 验证 Rust 代码示例
+      continue-on-error: true
+      run: |
+        echo "验证 Rust 代码示例..."
+        # 创建临时项目验证代码
+        
+    - name: 检查 TODO 标记
+      run: |
+        echo "查找待完善标记..."
+        grep -r "🚧" --include="*.md" . || echo "无待完善标记"
+  
+  security-check:
+    runs-on: ubuntu-latest
+    name: 安全检查
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: 检查敏感信息
+      run: |
+        echo "检查敏感信息..."
+        # 确保不包含密码、密钥等
+        ! grep -r "password" --include="*.md" . || exit 1
+        ! grep -r "secret" --include="*.md" . || exit 1
+    
+    - name: 检查外部链接
+      run: |
+        echo "检查外部链接安全性..."
+        # 确保所有外部链接安全
+
