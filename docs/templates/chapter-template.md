@@ -127,7 +127,7 @@ fn main() {
 #### 可视化图解
 
 ```
-[ASCII 艺术或 Mermaid 图表]
+[ASCII 艺术图表]
 ```
 
 #### 内存布局
@@ -210,16 +210,28 @@ fn main() {
 
 #### 编译错误信息
 
+<!-- 
+错误信息格式说明：
+1. 内联格式（适用于简单示例）：
+   // ❌ 错误
+   // error: [简短错误说明]
+   
+2. 完整格式（适用于详细错误分析）：
+   使用单独的代码块展示完整编译器输出，如下方示例
+   优点：展示完整的错误位置、帮助信息
+   使用场景：常见错误章节、需要详细解释的错误
+-->
+
 ```
 error[E0384]: cannot assign twice to immutable variable `x`
  --> src/main.rs:3:5
-  |
+   |
 2 |     let x = 5;
-  |         - first assignment to `x`
+   |         - first assignment to `x`
 3 |     x = 6;
-  |     ^^^^^ cannot assign twice to immutable variable
-  |
-  = help: consider making this binding mutable
+   |     ^^^^^ cannot assign twice to immutable variable
+   |
+   = help: consider making this binding mutable
 ```
 
 #### 修复方法
