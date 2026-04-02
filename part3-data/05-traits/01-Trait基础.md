@@ -1,9 +1,9 @@
-## 16.1 为什么需要 Trait？
+## 16.1 为什么需要 Trait？深度解析
 
-### 代码组织问题
+### 从代码组织问题出发
 
 ```rust
-// 问题：不同类型的相似操作
+// 问题：不同类型的相似操作，无法统一处理
 
 struct NewsArticle {
     pub headline: String,
@@ -28,16 +28,61 @@ impl Tweet {
     }
 }
 
-// 问题：无法编写通用函数处理两者
+// ❌ 无法编写通用函数
 // fn print_summary(item: ???) {
 //     println!("{}", item.get_summary());
 // }
+
+// 只能写两个函数：
+fn print_article_summary(article: &NewsArticle) {
+    println!("{}", article.get_summary());
+}
+
+fn print_tweet_summary(tweet: &Tweet) {
+    println!("{}", tweet.get_summary());
+}
+```
+
+**问题本质：**
+
+```
+┌─────────────────────────────────────────────────────┐
+│           代码组织困境                               │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  NewsArticle                                        │
+│  ┌─────────────────────────┐                       │
+│  │ get_summary(&self)      │                       │
+│  │ -> String               │                       │
+│  └─────────────────────────┘                       │
+│                                                     │
+│  Tweet                                              │
+│  ┌─────────────────────────┐                       │
+│  │ get_summary(&self)      │                       │
+│  │ -> String               │                       │
+│  └─────────────────────────┘                       │
+│                                                     │
+│  问题：                                              │
+│  • 方法签名相同，但类型不同                          │
+│  • 无法编写统一的处理函数                            │
+│  • 每种类型都需要单独实现                            │
+│  • 代码重复，维护困难                                │
+│                                                     │
+│  Java/C++ 的解决方案：                               │
+│  • 使用继承（父类定义共同方法）                      │
+│  • 但 Rust 不支持继承                                │
+│                                                     │
+│  Rust 的解决方案：                                    │
+│  • Trait 定义共享行为                                │
+│  • 组合优于继承                                      │
+│                                                     │
+└─────────────────────────────────────────────────────┘
 ```
 
 ### Trait 的解决方案
 
 ```rust
-// 使用 Trait 定义共享行为
+// ✅ 使用 Trait 定义共享行为
 trait Summary {
     fn get_summary(&self) -> String;
 }
@@ -54,7 +99,7 @@ impl Summary for Tweet {
     }
 }
 
-// 现在可以编写通用函数
+// ✅ 现在可以编写通用函数
 fn print_summary(item: &impl Summary) {
     println!("{}", item.get_summary());
 }
@@ -74,6 +119,55 @@ fn main() {
     print_summary(&article);  // Breaking News, by John
     print_summary(&tweet);    // @rustlang: Hello world!
 }
+```
+
+**Trait 内存布局：**
+
+```
+Trait 的内存模型：
+
+┌─────────────────────────────────────────────────────┐
+│           Trait 不是数据，是行为的抽象               │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  Trait 定义：                                        │
+│  trait Summary {                                    │
+│      fn get_summary(&self) -> String;              │
+│  }                                                  │
+│                                                     │
+│  NewsArticle 实例（栈）：                             │
+│  ┌─────────────────────────┐                       │
+│  │ headline: String        │                       │
+│  │ author: String          │                       │
+│  │ content: String         │                       │
+│  └─────────────────────────┘                       │
+│           ↓                                         │
+│  impl Summary for NewsArticle                      │
+│  ┌─────────────────────────┐                       │
+│  │ get_summary 方法实现     │ ← 编译时确定          │
+│  │ 访问 self.headline      │   （静态分发）        │
+│  │ 访问 self.author        │                       │
+│  └─────────────────────────┘                       │
+│                                                     │
+│  Tweet 实例（栈）：                                  │
+│  ┌─────────────────────────┐                       │
+│  │ username: String        │                       │
+│  │ content: String         │                       │
+│  └─────────────────────────┘                       │
+│           ↓                                         │
+│  impl Summary for Tweet                            │
+│  ┌─────────────────────────┐                       │
+│  │ get_summary 方法实现     │ ← 编译时确定          │
+│  │ 访问 self.username      │   （静态分发）        │
+│  │ 访问 self.content       │                       │
+│  └─────────────────────────┘                       │
+│                                                     │
+│  Trait 不占用额外内存                                │
+│  • 只是方法的集合                                    │
+│  • 实现时绑定到具体类型                              │
+│  • 调用时编译器确定具体方法                          │
+│                                                     │
+└─────────────────────────────────────────────────────┘
 ```
 
 ### Trait 的核心作用
