@@ -1,5 +1,48 @@
 ## 为什么需要 Trait？深度解析
 
+### Trait 语法
+
+**概念名称：** Trait 定义共享行为，类似其他语言的接口。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  trait Trait名 {                      │
+│      fn 方法名(&self) -> 返回类型;    │
+│  }                                    │
+│                                       │
+│  impl Trait名 for 类型 {              │
+│      fn 方法名(&self) -> 返回类型 {   │
+│          实现...                       │
+│      }                                │
+│  }                                    │
+│                                       │
+│  trait Summary {                      │
+│      fn summarize(&self) -> String;  │
+│  }                                    │
+│                                       │
+│  impl Summary for Article { ... }    │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
+
+```rust
+trait Speak {
+    fn say(&self) -> String;
+}
+
+struct Dog;
+impl Speak for Dog {
+    fn say(&self) -> String { "汪".to_string() }
+}
+
+fn main() {
+    let dog = Dog;
+    println!("{}", dog.say());
+}
+```
+
 ### 从代码组织问题出发
 
 ```rust

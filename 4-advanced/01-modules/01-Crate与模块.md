@@ -1,5 +1,42 @@
 ## Crate：最小的编译单元
 
+### 模块语法
+
+**概念名称：** 模块组织代码，控制可见性。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  mod 模块名 {                         │
+│      pub fn 公开函数() { ... }        │
+│      fn 私有函数() { ... }            │
+│  }                                    │
+│                                       │
+│  或文件模块：                          │
+│  src/module_name/mod.rs 或           │
+│  src/module_name.rs                   │
+│                                       │
+│  使用：                                │
+│  use crate::module::function;        │
+│  use super::sibling_module;          │
+│  use self::nested_module;            │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
+
+```rust
+mod math {
+    pub fn add(a: i32, b: i32) -> i32 {
+        a + b
+    }
+}
+
+fn main() {
+    println!("{}", math::add(1, 2));
+}
+```
+
 ### 什么是 Crate
 
 ```
