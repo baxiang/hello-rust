@@ -1,37 +1,86 @@
 ## Result 枚举：可恢复错误
 
-### Result 的定义
+**概念名称：** `Result<T, E>` 表示可能成功（Ok）或失败（Err）的操作。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  enum Result<T, E> {                 │
+│      Ok(T),      // 成功，包含值      │
+│      Err(E),     // 失败，包含错误    │
+│  }                                   │
+│                                       │
+│  处理模式：                            │
+│  match result {                      │
+│      Ok(v) => ...                    │
+│      Err(e) => ...                   │
+│  }                                   │
+│                                       │
+│  简化：? 操作符自动传播错误            │
+│  fn foo() -> Result<T, E> {          │
+│      let x = risky_op()?;            │
+│      Ok(x)                           │
+│  }                                   │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
 
 ```rust
-// 标准库中的定义
-#[must_use]
-pub enum Result<T, E> {
-    Ok(T),   // 成功，包含值
-    Err(E),  // 失败，包含错误
+fn divide(a: f64, b: f64) -> Result<f64, String> {
+    if b == 0.0 {
+        Err("除数不能为零".to_string())
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() {
+    match divide(10.0, 2.0) {
+        Ok(r) => println!("结果：{}", r),
+        Err(e) => println!("错误：{}", e),
+    }
 }
 ```
 
+### 详细示例
+
+```rust
+use std::fs::File;
+use std::io::{self, Read};
+
+// 使用 ? 传播错误
+fn read_file_contents() -> Result<String, io::Error> {
+    let mut file = File::open("hello.txt")?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+
+fn main() {
+    // unwrap_or - 提供默认值
+    let content = std::fs::read_to_string("hello.txt")
+        .unwrap_or_default();  // 失败返回空字符串
+
+    println!("内容：{}", content);
+    
+    // 链式使用 ?
+    match read_file_contents() {
+        Ok(c) => println!("读取成功：{} 字符", c.len()),
+        Err(e) => println!("读取失败：{}", e),
+    }
+}
 ```
-┌─────────────────────────────────────────────────────┐
-│              Result 详解                             │
-├─────────────────────────────────────────────────────┤
-│                                                     │
-│  泛型参数：                                          │
-│  ├── T - 成功时返回的类型                           │
-│  └── E - 错误的类型                                 │
-│                                                     │
-│  #[must_use] 属性：                                  │
-│  • 强制处理 Result                                   │
-│  • 忽略未处理的 Result 会产生警告                   │
-│  • 确保错误不会被无意中忽略                         │
-│                                                     │
-│  示例：                                              │
-│  Result<String, io::Error>      // 成功返回 String   │
-│  Result<i32, ParseError>        // 成功返回 i32      │
-│  Result<(), Box<dyn Error>>     // 成功无返回值      │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-```
+
+**关键代码说明：**
+
+| 代码 | 含义 | 为什么这样写 |
+|------|------|-------------|
+| `Result<T, E>` | 成功/失败的结果类型 | 将错误作为值，强制调用者处理 |
+| `Ok(a / b)` | 成功分支 | 包含有效计算结果 |
+| `Err(...)` | 失败分支 | 包含错误描述信息 |
+| `?` 操作符 | 错误传播语法糖 | 自动返回 Err，大幅简化代码 |
+| `.unwrap_or_default()` | 失败时使用默认值 | 适合可接受空结果的场景 |
 
 ### 处理 Result 的五种方法
 
