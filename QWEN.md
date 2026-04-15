@@ -311,6 +311,6 @@ fn bad_example() { ... }
 
 ## 版本信息
 
-- 最低 Rust 版本：1.75+
+- 最低 Rust 版本：1.85+
 - 教程版本：2.2
 - Markdown 格式：GitHub Flavored Markdown

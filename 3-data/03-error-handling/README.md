@@ -46,3 +46,13 @@
 
 - 什么时候用 panic，什么时候用 Result？
 - 如何统一处理多种错误类型？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-error-overview 02-panic 03-result 04-custom-errors 05-error-review
+cargo check --examples
+```

@@ -46,3 +46,13 @@
 
 - 迭代器和 for 循环哪个性能更好？
 - 如何组合多个迭代器？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-iterator-basics 02-consuming-adapters 03-iterator-adapters 05-iterator-review
+cargo check --examples
+```

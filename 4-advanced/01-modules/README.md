@@ -43,3 +43,13 @@
 
 - 模块文件分离有哪几种方式？
 - 如何设计模块的可见性？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-crate-module
+cargo check --examples
+```

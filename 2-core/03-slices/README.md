@@ -54,3 +54,17 @@
 | `&str` | 字符串切片 | `&s[0..5]` |
 | `&[T]` | 数组/Vec切片 | `&arr[1..3]` |
 | `&mut [T]` | 可变切片 | `&mut v[0..2]` |
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-slice-basics
+cargo run --example 02-slice-applications
+cargo run --example 03-slice-safety
+cargo run --example 04-slice-review
+cargo check --examples
+cargo clippy --examples
+```

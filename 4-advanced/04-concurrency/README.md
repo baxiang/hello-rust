@@ -49,3 +49,13 @@
 
 - 如何避免数据竞争？
 - 消息传递和共享状态如何选择？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-concurrency-basics
+cargo check --examples
+```

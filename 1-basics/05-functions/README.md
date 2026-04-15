@@ -49,3 +49,36 @@
 
 - 函数的返回值为什么不需要 return 关键字？
 - 如何在函数中返回多个值？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+# 运行单个示例
+
+
+# 编译检查所有示例
+cargo check --examples
+
+# Clippy 检查
+cargo clippy --examples
+```
+
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-function-basics
+cargo run --example 02-params-return
+cargo run --example 03-ownership-functions
+cargo run --example 04-advanced-functions
+cargo run --example 05-closures-recursion
+cargo run --example 06-function-review
+cargo check --examples
+cargo clippy --examples
+```

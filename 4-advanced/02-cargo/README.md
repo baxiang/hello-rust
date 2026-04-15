@@ -49,3 +49,13 @@
 
 - 如何选择合适的 crate 版本？
 - 如何处理版本冲突？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-cargo-basics
+cargo check --examples
+```

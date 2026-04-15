@@ -46,3 +46,13 @@
 
 - 什么时候必须使用 Unsafe？
 - 如何确保 Unsafe 代码的安全性？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-unsafe-overview
+cargo check --examples
+```

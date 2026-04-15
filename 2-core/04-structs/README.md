@@ -53,3 +53,17 @@
 | 方法 | 实例调用 | `user.get_name()` |
 | 关联函数 | 类型调用 | `User::new()` |
 | `impl` | 实现块 | `impl User { ... }` |
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-struct-basics
+cargo run --example 02-struct-syntax
+cargo run --example 03-methods-associated
+cargo run --example 04-struct-review
+cargo check --examples
+cargo clippy --examples
+```

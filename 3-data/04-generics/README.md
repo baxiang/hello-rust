@@ -43,3 +43,13 @@
 
 - 泛型会影响运行时性能吗？
 - 泛型参数和生命周期参数如何区分？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-generics-basics 02-generic-types 03-trait-bounds 04-generics-review
+cargo check --examples
+```

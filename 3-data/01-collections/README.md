@@ -43,3 +43,13 @@
 
 - 什么时候用数组，什么时候用 Vec？
 - 如何避免 Vec 的频繁重新分配？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-array-basics 02-vec-details 03-array-vec 04-collections-review
+cargo check --examples
+```

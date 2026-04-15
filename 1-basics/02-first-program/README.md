@@ -69,3 +69,22 @@
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+# 运行单个示例
+cargo run --example 01-hello-world
+cargo run --example 02-variables-comments
+cargo run --example 03-complete-example
+cargo run --example 04-debug-errors
+
+# 编译检查所有示例
+cargo check --examples
+
+# Clippy 检查
+cargo clippy --examples
+```

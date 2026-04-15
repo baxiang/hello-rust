@@ -60,3 +60,18 @@
 | `if let` | 简化匹配 | `if let Some(x) = opt { }` |
 | `Option` | 可选值 | `Some(value)` / `None` |
 | `Result` | 错误处理 | `Ok(value)` / `Err(e)` |
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-enum-basics
+cargo run --example 02-common-enums
+cargo run --example 03-pattern-matching-enums
+cargo run --example 04-enum-methods
+cargo run --example 05-enum-review
+cargo check --examples
+cargo clippy --examples
+```

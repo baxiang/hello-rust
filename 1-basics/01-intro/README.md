@@ -53,3 +53,22 @@
 | **cargo** | 包管理/构建 | `cargo new`, `cargo run` |
 | **rustfmt** | 代码格式化 | `cargo fmt` |
 | **clippy** | 代码检查 | `cargo clippy` |
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+# 运行单个示例
+cargo run --example 01-why-rust
+cargo run --example 02-install-check
+cargo run --example 03-first-cargo-project
+cargo run --example 04-faq
+
+# 编译检查所有示例
+cargo check --examples
+
+# Clippy 检查
+cargo clippy --examples
+```

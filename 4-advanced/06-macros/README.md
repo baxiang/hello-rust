@@ -46,3 +46,13 @@
 
 - 宏和泛型如何选择？
 - 过程宏调试有哪些技巧？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-macro-overview
+cargo check --examples
+```

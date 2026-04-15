@@ -49,3 +49,13 @@
 
 - Box 和 Rc 如何选择？
 - RefCell 会影响性能吗？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 02-box
+cargo check --examples
+```

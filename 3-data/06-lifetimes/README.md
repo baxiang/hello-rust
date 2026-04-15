@@ -62,3 +62,13 @@
 - 'static 生命周期何时使用？
 - 什么是生命周期协变？
 - 如何设计零拷贝解析器？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-lifetime-basics 02-lifetime-annotations 03-lifetime-elision 04-struct-lifetimes 05-advanced-lifetimes 06-lifetime-review
+cargo check --examples
+```

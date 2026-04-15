@@ -46,3 +46,13 @@
 - [Rust and WebAssembly](https://rustwasm.github.io/docs/book/)
 - [wasm-bindgen Guide](https://rustwasm.github.io/wasm-bindgen/)
 - [wasm-pack](https://github.com/rustwasm/wasm-pack)
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-wasm-basics
+cargo check --examples
+```

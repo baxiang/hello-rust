@@ -43,3 +43,13 @@
 
 - 如何用结构体作为 HashMap 的键？
 - HashMap 的性能特点是什么？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-hashmap-basics 02-hashmap-operations 03-hashmap-advanced 04-hashmap-review
+cargo check --examples
+```

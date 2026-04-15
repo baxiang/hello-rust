@@ -52,3 +52,13 @@
 - [Rust Edition Guide](https://doc.rust-lang.org/edition-guide/)
 - [Rust 2024 Release Notes](https://blog.rust-lang.org/2024/ rust-1.85.0.html)
 - [Rust Blog](https://blog.rust-lang.org/)
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 02-new-features
+cargo check --examples
+```

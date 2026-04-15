@@ -56,3 +56,18 @@
 | `&mut T` | 可变引用 | `let r = &mut x;` |
 | `*` | 解引用 | `*r` |
 | 借用 | 临时使用权 | 不转移所有权 |
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-reference-basics
+cargo run --example 02-mutable-references
+cargo run --example 03-reference-advanced
+cargo run --example 04-reference-review
+cargo run --example 05-borrow-checker
+cargo check --examples
+cargo clippy --examples
+```

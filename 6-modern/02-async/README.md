@@ -53,3 +53,13 @@
 - [The Async Book](https://rust-lang.github.io/async-book/)
 - [Tokio Tutorial](https://tokio.rs/tokio/tutorial)
 - [Futures API](https://docs.rs/futures/)
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-async-basics
+cargo check --examples
+```

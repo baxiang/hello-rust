@@ -530,6 +530,314 @@ $ cargo run
 
 ---
 
+## Rustdoc 文档注释规范
+
+Rust 的文档注释（`///`）支持 doctest，是教程编写的重要规范。
+
+### 文档注释格式
+
+```rust
+/// 函数功能简述（一句话）
+///
+/// 详细说明（可选）：
+/// - 参数说明
+/// - 返回值说明
+/// - 错误情况
+///
+/// # 示例
+///
+/// ```
+/// let result = add(2, 3);
+/// assert_eq!(result, 5);
+/// ```
+///
+/// # 错误
+///
+/// 如果输入为空，返回 `Err(InvalidInput)`
+pub fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+```
+
+### 示例代码块要求
+
+| 类型 | 格式 | 说明 |
+|------|------|------|
+| 可测试示例 | ` ``` ` | 无语言标记或 `rust`，会被 doctest 运行 |
+| 不可测试 | ` ```rust,ignore ` | 需要 IO、网络等无法在 doctest 运行的场景 |
+| 应失败示例 | ` ```rust,should_panic ` | 演示 panic 场景 |
+| 编译失败 | ` ```rust,compile_fail ` | 演示编译错误 |
+
+### 教程中的使用
+
+- **第28章（测试与文档）** 必须使用完整 doctest 示例
+- **公共 API 章节** 必须包含 `///` 注释示例
+- **错误处理章节** 必须展示 `should_panic` 和 `compile_fail` 用法
+
+### 章节注释模板
+
+```rust
+/// # 使用示例
+///
+/// ```
+/// use std::collections::HashMap;
+///
+/// let mut map = HashMap::new();
+/// map.insert("key", "value");
+/// assert_eq!(map.get("key"), Some(&"value"));
+/// ```
+```
+
+---
+
+## 常见 Rust 惯用法
+
+教程中的代码示例应优先使用 Rust 惯用写法。
+
+### 模式匹配风格
+
+```rust
+// ✅ 推荐：使用 if let 简化单分支
+if let Some(value) = option {
+    println!("{}", value);
+}
+
+// ✅ 推荐：使用 match 处理多分支
+match result {
+    Ok(value) => println!("{}", value),
+    Err(e) => eprintln!("Error: {}", e),
+}
+
+// ❌ 避免：过度嵌套
+if option.is_some() {
+    let value = option.unwrap();
+    println!("{}", value);
+}
+```
+
+### Iterator 链式调用
+
+```rust
+// ✅ 推荐：链式调用
+let sum: i32 = numbers.iter()
+    .filter(|&&x| x > 0)
+    .map(|&x| x * 2)
+    .sum();
+
+// ❌ 避免：临时变量过多
+let mut result = 0;
+for &x in &numbers {
+    if x > 0 {
+        result += x * 2;
+    }
+}
+```
+
+### 错误传播
+
+```rust
+// ✅ 推荐：使用 ? 操作符
+fn read_file(path: &str) -> Result<String, io::Error> {
+    let mut contents = String::new();
+    File::open(path)?.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+
+// ❌ 避免：手动 match
+fn read_file(path: &str) -> Result<String, io::Error> {
+    let file = match File::open(path) {
+        Ok(f) => f,
+        Err(e) => return Err(e),
+    };
+    // ...
+}
+```
+
+### Option 处理
+
+```rust
+// ✅ 推荐：使用组合子
+let value = config.get("key").unwrap_or("default");
+let doubled = number.map(|x| x * 2);
+
+// ✅ 推荐：使用 if let
+if let Some(user) = find_user(id) {
+    process(user);
+}
+```
+
+### 所有权转移与借用
+
+```rust
+// ✅ 推荐：不必要时不转移所有权
+fn process(data: &[u8]) {
+    // 使用切片，不获取所有权
+}
+
+// ✅ 推荐：需要修改时使用 &mut
+fn update(list: &mut Vec<i32>) {
+    list.push(42);
+}
+```
+
+---
+
+## 本地开发与 VSCode 环境
+
+推荐读者使用本地 VSCode 环境进行代码实验。
+
+### 推荐开发环境配置
+
+| 组件 | 版本 | 说明 |
+|------|------|------|
+| Rust | 1.85+ | 通过 rustup 安装 |
+| VSCode | 最新 | 免费编辑器 |
+| rust-analyzer | 最新 | 必需插件 |
+| CodeLLDB | 最新 | 调试支持 |
+
+### VSCode 插件推荐
+
+```json
+{
+  "recommendations": [
+    "rust-lang.rust-analyzer",
+    "vadimcn.vscode-lldb",
+    "tamasfe.even-better-toml",
+    "serayuzgur.crates"
+  ]
+}
+```
+
+### 章节代码实验指导
+
+在章节末尾添加本地实验说明：
+
+```markdown
+### 本地实验
+
+1. 创建新项目：`cargo new chapter_example`
+2. 将代码复制到 `src/main.rs`
+3. VSCode 中打开项目，rust-analyzer 会自动检查
+4. 运行：`cargo run` 或点击 VSCode 的运行按钮
+5. 尝试修改代码，观察编译器错误信息
+```
+
+### 快速创建测试项目
+
+```bash
+# 创建学习项目
+cargo new rust-learning
+cd rust-learning
+
+# 运行示例
+cargo run
+
+# 运行 clippy 检查
+cargo clippy
+
+# 生成文档
+cargo doc --open
+```
+
+---
+
+## 本地实验项目规范
+
+每章创建独立的 Cargo 项目，使用 `examples/` 目录组织所有示例代码。
+
+### 目录结构
+
+```
+<章节目录>/
+├── README.md                    # 章节导航
+├── <小节文件>.md                # 理论内容
+├── Cargo.toml                   # 章节项目配置
+└── examples/
+    ├── 01-<示例名称>.rs         # 对应第一小节
+    ├── 02-<示例名称>.rs         # 对应第二小节
+    └── ...
+```
+
+### Cargo.toml 模板
+
+```toml
+[package]
+name = "chapter-<序号>-<主题>"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# 按需添加依赖
+```
+
+**命名规则：**
+- `name` 格式：`chapter-<两位序号>-<主题>`，如 `chapter-03-variables`
+- `edition`：统一使用 `"2024"`
+
+### 示例文件规范
+
+#### 文件命名
+
+- 格式：`<两位序号>-<示例名称>.rs`
+- 示例名称使用 kebab-case（短横线命名）
+- 序号与章节小节对应
+
+#### 文件内容模板
+
+```rust
+//! # 示例：<示例标题>
+//! 
+//! 对应章节：<章节名称>
+//! 运行：cargo run --example <文件名（不含.rs）>
+
+fn main() {
+    // ✅ 正确示例
+    let x = 5;
+    println!("x = {}", x);
+    
+    // 尝试修改：
+    // 取消下面的注释观察编译错误：
+    // x = 10;  // ❌ 不能修改不可变变量
+}
+```
+
+#### 要求
+
+1. 文件顶部必须有模块文档注释（`//!`）
+2. 包含对应章节的 Markdown 说明
+3. 正确示例使用 `// ✅` 标注
+4. 错误示例注释掉并标注 `// ❌`
+5. 鼓励读者修改代码实验
+
+### 章节 README 更新
+
+在每章 README.md 中添加"本地实验"段落：
+
+```markdown
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+# 运行单个示例
+cargo run --example 01-let-binding
+
+# 编译检查所有示例
+cargo check --examples
+```
+```
+
+### 运行命令速查
+
+| 命令 | 说明 |
+|------|------|
+| `cargo run --example <名称>` | 运行指定示例 |
+| `cargo check --examples` | 编译检查所有示例 |
+| `cargo clippy --examples` | lint 检查所有示例 |
+| `cargo test --examples` | 运行示例中的测试 |
+
+---
+
 ## 技术概念编写规范
 
 每个技术概念必须包含：
@@ -692,6 +1000,7 @@ fn process(s: &str) -> &str {
 
 提交文档前检查：
 
+### Markdown 格式
 - [ ] 标题层级不超过三级
 - [ ] 所有代码块标注语言
 - [ ] 代码示例包含正确/错误标注
@@ -704,6 +1013,16 @@ fn process(s: &str) -> &str {
 - [ ] 包含练习题或练习题链接
 - [ ] 添加小结部分
 - [ ] 使用中文术语对照
+
+### Rust 代码质量
+- [ ] 代码通过 `cargo fmt` 格式化
+- [ ] 代码通过 `cargo clippy` 检查（无 warning）
+- [ ] 公共 API 包含 `///` 文档注释
+- [ ] 错误处理使用 `Result` 而非 `panic`
+- [ ] 优先使用 Iterator 链式调用而非 for 循环
+- [ ] 优先使用 `?` 操作符而非手动 match
+- [ ] 避免不必要的 `.clone()`
+- [ ] 版本要求已标注（统一 `// 需要 Rust 1.85+`）
 
 ---
 
@@ -724,6 +1043,58 @@ fn process(s: &str) -> &str {
 
 - asciiflow
 - Monodraw
+
+### Rust 工具链
+
+- **cargo fmt** - 代码格式化（必须）
+- **cargo clippy** - 代码 lint 检查（必须）
+- **cargo doc** - 生成文档（第 28 章）
+- **rust-analyzer** - IDE 支持
+- **Rust Playground** - 在线代码实验
+
+### 版本管理工具
+
+- **cargo-msrv** - 验证最低 Rust 版本要求
+- **rustup** - 多版本切换测试
+
+---
+
+## 版本标注规范
+
+教程统一使用 Rust 1.85+ 作为最低版本要求。
+
+### 版本标注位置
+
+```rust
+// 需要 Rust 1.85+
+fn example() {
+    // 使用 1.85 引入的特性
+}
+```
+
+或在章节开头标注：
+
+```markdown
+> ⚠️ 需要 Rust 1.85+
+```
+
+### Edition 标注
+
+统一使用 2024 Edition：
+
+```rust
+// edition = 2024
+fn main() {
+    // Rust 2024 Edition 特性
+}
+```
+
+### 版本兼容性要求
+
+- 所有代码示例应在 Rust 1.85+ 编译通过
+- 使用 2024 Edition 特性
+- 如使用不稳定特性，标注 `#![feature(...)]`
+- `Cargo.toml` 中配置 `edition = "2024"`
 
 ---
 
@@ -746,6 +1117,9 @@ fn process(s: &str) -> &str {
 ---
 
 **更新日志：**
+- 2026-04-15: 添加本地实验项目规范（examples/ 目录组织方式）
+- 2026-04-15: 去掉 Playground 集成，改用本地 VSCode 环境；版本统一为 Rust 1.85+，使用 2024 Edition
+- 2026-04-15: 添加 Rustdoc 文档注释规范、常见 Rust 惯用法、clippy 检查清单、版本标注规范
 - 2026-04-11: 添加 Rust 学习策略（分层递进、场景驱动、对比学习、编译器当导师）
 - 2026-04-11: 添加技术概念编写规范（语法结构图、关键代码解释）
 - 2026-04-03: 创建风格指南

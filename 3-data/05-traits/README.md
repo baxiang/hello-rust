@@ -65,3 +65,13 @@
 - 什么是对象安全？
 - 关联类型 vs 泛型参数？
 - 如何设计组合式 Trait？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-trait-basics 02-default-impl 03-trait-as-param 04-trait-advanced 05-standard-traits 06-trait-objects 08-trait-patterns
+cargo check --examples
+```

@@ -53,3 +53,13 @@
 
 - 如何测试异步代码？
 - 如何组织大型项目的测试？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-test-basics
+cargo check --examples
+```

@@ -55,3 +55,18 @@
 | Copy | 自动复制 | `let x2 = x1;` (x1仍有效) |
 | Clone | 显式深拷贝 | `let s2 = s1.clone();` |
 | 借用 | 临时使用权 | `let r = &s;` |
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-ownership-basics
+cargo run --example 02-string-move
+cargo run --example 03-function-copy
+cargo run --example 04-ownership-review
+cargo run --example 05-error-diagnosis
+cargo check --examples
+cargo clippy --examples
+```

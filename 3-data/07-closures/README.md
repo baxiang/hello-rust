@@ -46,3 +46,13 @@
 
 - 闭包和函数有什么区别？
 - 什么时候需要 move 关键字？
+---
+
+## 本地实验
+
+本章示例代码位于 `examples/` 目录。
+
+```bash
+cargo run --example 01-closure-basics 02-closure-types 03-fn-traits 04-closure-apps
+cargo check --examples
+```
