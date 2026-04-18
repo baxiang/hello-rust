@@ -1,3 +1,7 @@
+# HashMap操作
+
+> 掌握HashMap的entry API、插入更新模式和常用操作方法。
+
 ## entry API：插入或更新的神器
 
 ### 为什么需要 entry？
@@ -131,6 +135,20 @@ fn main() {
         println!("  {}: {}", word, count);
     }
 }
+```
+
+---
+
+## 小结
+
+- entry API：一次查找完成"不存在则插入，存在则更新"
+- `or_insert(v)`：不存在时插入默认值，返回可变引用
+- `or_insert_with(|| v)`：使用闭包延迟计算默认值
+- 常用模式：计数 `*entry.or_insert(0) += 1`
+
+## 练习题
+
+详见：[练习题](../../exercises/02-hashmap.md)
 ```
 
 

@@ -1,3 +1,7 @@
+# Vec详解
+
+> Vec是可增长的动态数组，数据存储在堆上。掌握Vec的创建、容量管理和常用操作方法。
+
 ## Vec（可增长向量）详解
 
 ### 什么是 Vec？
@@ -248,6 +252,20 @@ fn main() {
         println!("v[{}] = {}", i, val);
     }
 }
+```
+
+---
+
+## 小结
+
+- Vec<T>：可增长动态数组，堆上存储，指针+长度+容量三部分组成
+- 创建：`vec![]` 宏最常用，`Vec::with_capacity(n)` 预分配优化性能
+- 增删改：`push()`、`pop()`、`insert()`、`remove()`、`extend()`
+- 常用方法：`len()`、`capacity()`、`sort()`、`dedup()`、迭代器等
+
+## 练习题
+
+详见：[练习题](../../exercises/01-collections.md)
 ```
 
 

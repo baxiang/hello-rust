@@ -1,3 +1,7 @@
+# 数组与Vec
+
+> 学习数组与Vec的相互转换，理解切片作为通用接口的作用，掌握选择指南。
+
 ## 数组与 Vec 的转换
 
 ### 数组转 Vec
@@ -152,6 +156,20 @@ fn main() {
         .filter(|x| x % 2 == 0)
         .collect();
 }
+```
+
+---
+
+## 小结
+
+- 数组转Vec：`arr.to_vec()`、`Vec::from(arr)`、`into_iter().collect()`
+- Vec转数组：`v.try_into()`（返回 Result）、`copy_from_slice()`
+- 切片 `&[T]`：数组和Vec的共同接口，函数参数优先使用切片
+- 选择：固定大小用数组，动态大小用Vec
+
+## 练习题
+
+详见：[练习题](../../exercises/01-collections.md)
 ```
 
 
