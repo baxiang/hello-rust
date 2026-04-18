@@ -1,3 +1,7 @@
+# Hello World 详解
+
+> 逐行解析 Hello World 程序，理解 Rust 程序结构与 println! 宏的用法。
+
 ## 再探 Hello World
 
 ### 逐行解析
@@ -176,3 +180,14 @@ eprintln!("错误：文件不存在");  // 可被重定向分离
 ```
 
 ---
+
+## 小结
+
+- `fn main()` 是程序入口，每个可执行程序都必须有
+- `println!` 是宏（以 `!` 结尾），不是函数
+- `{}` 是格式化占位符，支持多种格式化选项
+- `print!` 不换行，`println!` 自动追加换行符
+
+## 练习题
+
+详见：[练习题](../../exercises/02-first-program.md)

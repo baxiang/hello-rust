@@ -27,7 +27,7 @@ fn main() {
     print_result("体积", volume);
 
     // 3. 函数组合
-    let numbers = vec![1, 2, 3, 4, 5];
+    let numbers = [1, 2, 3, 4, 5];
     let sum: i32 = numbers.iter().sum();
     let count = numbers.len();
     let average = sum as f64 / count as f64;
