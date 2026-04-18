@@ -1,3 +1,7 @@
+# Trait 约束
+
+> 掌握 Trait 约束的语法和用法，学会使用 where 子句提高复杂约束的可读性。
+
 ## Trait 约束（Trait Bounds）
 
 ### 为什么需要约束？
@@ -209,6 +213,23 @@ fn main() {
     let counts = count_occurrences(&items);
     println!("{:?}", counts);
 }
+
+
+
+
+---
+
+## 小结
+
+- Trait 约束 `T: Trait` 限制泛型参数必须实现指定 trait
+- 多个约束使用 `+` 连接，如 `T: Display + Clone`
+- `where` 子句将复杂约束移出参数列表，提高可读性
+- 可以约束关联类型 `T::Item: Display`
+- 常用约束包括 Display、Debug、Clone、PartialOrd、Add 等
+
+## 练习题
+
+详见：[练习题](../../exercises/04-generics.md)
 ```
 
 

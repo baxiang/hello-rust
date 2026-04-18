@@ -1,3 +1,7 @@
+# 标准库 Trait
+
+> 掌握常用标准库 Trait 的用法，学会使用 derive 自动实现常用 trait。
+
 ## 常用标准库 Trait
 
 ### 派生 Trait 速查
@@ -138,6 +142,23 @@ fn main() {
     let err: Box<dyn std::error::Error> =
         Box::new(std::io::Error::new(std::io::ErrorKind::Other, "error"));
 }
+
+
+
+
+---
+
+## 小结
+
+- 常用派生 Trait：Debug、Clone、Copy、PartialEq、Eq、Hash、Default
+- Debug 可派生，Display 需手动实现
+- From/Into 互相关联，实现 From 自动获得 Into
+- Copy 只适用于栈上数据，需要 Clone 作为前提
+- 组合派生如 `#[derive(Debug, Clone, PartialEq, Eq, Hash)]`
+
+## 练习题
+
+详见：[练习题](../../exercises/05-traits.md)
 ```
 
 

@@ -1,3 +1,7 @@
+# Result 枚举：可恢复错误
+
+> 掌握 Result<T, E> 的基本用法，学会使用 match、unwrap_or 和 ? 操作符处理可恢复错误。
+
 ## Result 枚举：可恢复错误
 
 **概念名称：** `Result<T, E>` 表示可能成功（Ok）或失败（Err）的操作。
@@ -295,6 +299,23 @@ fn main() {
     println!("{:?}", get_first_char(Some("")));       // None
     println!("{:?}", get_first_char(None));           // None
 }
+
+
+
+
+---
+
+## 小结
+
+- `Result<T, E>` 用于处理可恢复的错误，强制调用者处理
+- 处理 Result 的五种方法：match、unwrap、expect、if let、?
+- `?` 操作符自动传播错误，是 Rust 错误处理的精髓
+- `unwrap_or` 系列方法提供默认值，适合可接受空结果的场景
+- 可以同时用于 Result 和 Option 类型
+
+## 练习题
+
+详见：[练习题](../../exercises/03-error-handling.md)
 ```
 
 

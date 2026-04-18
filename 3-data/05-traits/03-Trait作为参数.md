@@ -1,3 +1,7 @@
+# Trait 作为参数
+
+> 掌握 impl Trait 语法和泛型约束的用法，学会使用 where 子句处理复杂约束。
+
 ## Trait 作为函数参数
 
 ### impl Trait 语法（推荐）
@@ -120,6 +124,23 @@ fn main() {
     print_all(vec![1, 2, 3]);
     print_all(vec!["a", "b", "c"]);
 }
+
+
+
+
+---
+
+## 小结
+
+- `impl Trait` 语法简洁，适合简单场景
+- 泛型约束 `T: Trait` 更灵活，可以约束多个参数的关系
+- 多个约束使用 `+` 连接
+- `where` 子句提高复杂约束的可读性
+- 可以约束关联类型 `T::Item: Display`
+
+## 练习题
+
+详见：[练习题](../../exercises/05-traits.md)
 ```
 
 

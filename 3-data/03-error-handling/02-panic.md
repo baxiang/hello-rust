@@ -1,6 +1,8 @@
-## 不可恢复的错误 - panic!
+# 不可恢复的错误 - panic!
 
-### panic! 宏基础
+> 理解 panic! 的工作原理，掌握何时使用 panic 以及如何调试 panic 相关问题。
+
+## panic! 宏基础
 
 ```rust
 fn main() {
@@ -129,6 +131,23 @@ fn get_config() -> &'static str {
     // 如果不存在，说明部署有问题
     include_str!("../config/generated.txt")
 }
+
+
+
+
+---
+
+## 小结
+
+- `panic!` 用于不可恢复的错误，会立即终止程序
+- 自动触发 panic 的场景：数组越界、除零、unwrap None/Err
+- panic 时会进行栈展开，释放所有资源
+- 使用 `RUST_BACKTRACE=1` 可以查看完整的栈回溯
+- 适合 panic 的场景：示例代码、测试、不可恢复错误
+
+## 练习题
+
+详见：[练习题](../../exercises/03-error-handling.md)
 ```
 
 

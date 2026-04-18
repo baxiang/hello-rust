@@ -1,3 +1,7 @@
+# Fn Trait
+
+> 掌握 Fn、FnMut、FnOnce 三种 Trait 的区别和用法，学会作为参数和返回值使用闭包。
+
 ## Fn、FnMut、FnOnce Trait
 
 ### 三种 Trait 详解
@@ -124,6 +128,23 @@ fn main() {
     println!("{}", add_5(3));   // 8
     println!("{}", add_10(3));  // 13
 }
+
+
+
+
+---
+
+## 小结
+
+- Fn：不可变借用，可多次调用，不修改捕获变量
+- FnMut：可变借用，可多次调用，可能修改捕获变量
+- FnOnce：获取所有权，只能调用一次
+- Trait 继承关系：Fn ⊂ FnMut ⊂ FnOnce
+- 使用 `impl Trait` 或 `Box<dyn Trait>` 返回闭包
+
+## 练习题
+
+详见：[练习题](../../exercises/07-closures.md)
 ```
 
 
