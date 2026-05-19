@@ -2,11 +2,13 @@ import { defineConfig } from 'vitepress'
 import sidebar from './sidebar'
 import { playgroundPlugin } from './theme/playground'
 
+const isProduction = process.env.NODE_ENV === 'production' || process.argv.includes('build')
+
 export default defineConfig({
   title: 'Rust 教程',
   description: '从零开始系统学习 Rust 编程语言',
   lang: 'zh-CN',
-  base: '/hello-rust/',
+  base: isProduction ? '/hello-rust/' : '/',
 
   themeConfig: {
     nav: [
