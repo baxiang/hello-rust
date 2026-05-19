@@ -462,6 +462,75 @@ export default defineConfig({
 | `npm run docs:build` | 构建生产版本，输出到 `.vitepress/dist` |
 | `npm run docs:preview` | 预览生产构建结果 |
 
+---
+
+## 常见构建错误与排查指南
+
+### 1. `<T>` 或 `<model>` 被解析为未闭合 HTML 标签
+**现象**：`Build failed in X.XXs ✖ building client + server bundles... Element is missing end tag.`
+**原因**：Vue 编译器将 Markdown 正文中的 `<泛型>` 或 `<占位符>` 视为 HTML 标签。
+**修复**：使用反引号包裹，如 `` `<T>` `` 或 `` `model` ``。
+
+```markdown
+<!-- ❌ 错误写法 -->
+Ollama 拉取命令：ollama pull <model>
+
+<!-- ✅ 正确写法 -->
+Ollama 拉取命令：`ollama pull qwen2.5`
+```
+
+### 2. `{{ }}` 或 `{% %}` 被解析为 Vue 模板语法
+**现象**：`Duplicate attribute.` 或 `Element is missing end tag.`
+**原因**：Vue 编译器将 `{{ variable }}` 或 Jinja2 语法 `{% if %}` 误识别为 Vue 模板。
+**修复**：使用反引号包裹，或在 `config.ts` 中配置 `vue.template.compilerOptions.isCustomElement`。
+
+```markdown
+<!-- ❌ 错误写法 -->
+Jinja2 变量：{{ user.name }}
+
+<!-- ✅ 正确写法 -->
+Jinja2 变量：`{{ user.name }}`
+```
+
+### 3. 分裂的表格导致解析失败
+**现象**：表格中间有空行时，空行后的 `<T>` 会被当作独立标签解析。
+**原因**：Markdown 表格中间有空行会被断开，后续行的 `<T>` 脱离表格上下文。
+**修复**：确保表格行紧密相连，或在表格前添加子标题分隔。
+
+```markdown
+<!-- ❌ 错误写法 -->
+| 列1 | 列2 |
+| --- | --- |
+| A | B |
+
+| C | D | <!-- 空行导致表格断裂 -->
+
+<!-- ✅ 正确写法 -->
+| 列1 | 列2 |
+| --- | --- |
+| A | B |
+| C | D |
+```
+
+### 4. 扫描到示例项目目录中的 Markdown
+**现象**：构建失败，报错路径指向 `*_demo/app/...` 等示例代码目录。
+**原因**：VitePress 默认扫描根目录下所有 `.md` 文件，包括示例项目的 `README.md`，这些文件通常包含大量未转义的模板语法。
+**修复**：在 `config.ts` 的 `srcExclude` 和 `sidebar.ts` 的 `excludeFolders` 中添加通配模式。
+
+```typescript
+// .vitepress/config.ts
+export default defineConfig({
+  srcExclude: [
+    '**/*_demo/**',
+    '**/*_basics/**',
+    '**/flask_demo/**',
+    // ... 其他通配符
+  ],
+})
+```
+
+---
+
 ## 常见问题
 
 ### 1. 部署后页面 404
