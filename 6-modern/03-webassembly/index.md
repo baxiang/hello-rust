@@ -31,10 +31,6 @@
 
 本章将实现一个图像处理 Web 应用，对比 WASM 和 JavaScript 的性能差异。
 
-## 练习题答案
-
-参见各小节内的练习部分。
-
 ## 常见问题
 
 - WebAssembly 和 JavaScript 如何选择？

@@ -38,14 +38,11 @@
 
 本章将实现一个简单的数据类型转换工具。
 
-## 练习题答案
-
-参见各小节内的练习部分。
-
 ## 常见问题
 
 - String 和 &str 什么时候使用哪个？
 - 为什么整数类型有这么多变种？
+
 ---
 
 ## 本地实验
@@ -54,28 +51,16 @@
 
 ```bash
 # 运行单个示例
-
+cargo run --example 01-type-system-overview
+cargo run --example 02-basic-types
+cargo run --example 03-compound-types
+cargo run --example 04-string-types
+cargo run --example 05-type-review
 
 # 编译检查所有示例
 cargo check --examples
 
 # Clippy 检查
-cargo clippy --examples
-```
-
----
-
-## 本地实验
-
-本章示例代码位于 `examples/` 目录。
-
-```bash
-cargo run --example 01-type-system
-cargo run --example 02-primitive-types
-cargo run --example 03-compound-types
-cargo run --example 04-string-types
-cargo run --example 05-type-review
-cargo check --examples
 cargo clippy --examples
 ```
 

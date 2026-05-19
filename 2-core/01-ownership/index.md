@@ -23,7 +23,6 @@
 | [函数与Copy](./03-functions-and-copy) | 函数传递 | 参数传递、Copy trait详解 |
 | [实战总结](./04-practical-summary) | 最佳实践 | 常见错误、性能优化 |
 | [错误诊断实战](./05-error-diagnosis) | 编译器错误解读 | 学会读懂错误信息，建立心智模型 |
-| [练习题](./exercises) | 20道题目 | 基础/进阶/挑战 |
 
 ---
 

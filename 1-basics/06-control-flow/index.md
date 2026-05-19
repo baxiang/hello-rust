@@ -34,14 +34,11 @@
 
 本章将实现一个简单的猜数字游戏。
 
-## 练习题答案
-
-参见各小节内的练习部分。
-
 ## 常见问题
 
 - if 为什么是表达式而不是语句？
 - loop 和 while 应该选择哪个？
+
 ---
 
 ## 本地实验
@@ -50,27 +47,15 @@
 
 ```bash
 # 运行单个示例
-
+cargo run --example 01-conditional-expressions
+cargo run --example 02-loops
+cargo run --example 03-pattern-matching
+cargo run --example 04-control-flow-review
 
 # 编译检查所有示例
 cargo check --examples
 
 # Clippy 检查
-cargo clippy --examples
-```
-
----
-
-## 本地实验
-
-本章示例代码位于 `examples/` 目录。
-
-```bash
-cargo run --example 01-conditionals
-cargo run --example 02-loops
-cargo run --example 03-pattern-matching
-cargo run --example 04-control-flow-review
-cargo check --examples
 cargo clippy --examples
 ```
 
