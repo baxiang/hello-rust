@@ -2,51 +2,53 @@
 
 ## Project Type
 
-Chinese Rust tutorial (31 chapters + 9 projects + 3 modern practice chapters). Markdown documentation with per-chapter Cargo projects for runnable examples.
+Chinese Rust tutorial (31 chapters + 9 projects + 3 modern practice chapters). Markdown documentation with per-chapter Cargo projects for runnable code examples.
 
-## Directory Structure
+## Directory Layout
 
 ```
-1-basics/      # Chapters 1-6 (intro → control flow)
-2-core/        # Chapters 7-11 (ownership, references, slices, structs, enums)
-3-data/        # Chapters 12-19 (collections, hashmap, errors, generics, traits, lifetimes, closures, iterators)
-4-advanced/    # Chapters 20-28 (modules, cargo, smart pointers, concurrency, unsafe, macros, cli, web, testing)
-5-projects/    # 9 projects: docs only, no Cargo.toml
-6-modern/      # Chapters 29-31 (Rust 2024, async, WebAssembly)
+1-basics/      # Ch 1-6   (intro → control flow)
+2-core/        # Ch 7-11  (ownership, references, slices, structs, enums)
+3-data/        # Ch 12-19 (collections → iterators)
+4-advanced/    # Ch 20-28 (modules → testing)
+5-projects/    # 9 projects — docs only, NO Cargo.toml
+6-modern/      # Ch 29-31 (Rust 2024, async, WebAssembly)
 exercises/     # Exercise markdown files per chapter
-docs/          # style-guide.md, diagrams, templates, FAQ
+docs/          # style-guide.md, templates, FAQ
 scripts/       # verify-code.sh, check-links.sh
-playground/    # Sample Cargo project
+playground/    # 01-hello-world Cargo project
 ```
 
-## Chapter Cargo Structure
+## Working with Chapter Code
 
-Every chapter (except 5-projects) has its own `Cargo.toml` + `examples/` directory:
+Every chapter (except `5-projects/`) is an independent Cargo project with an `examples/` directory. 31 chapters + 1 playground = 32 Cargo.toml files, 101 example `.rs` files total.
 
 ```bash
 cd 1-basics/03-variables
 cargo run --example 01-let-binding   # Run single example
 cargo check --examples               # Compile-check all examples
-cargo clippy --examples              # Lint check
+cargo clippy --examples              # Lint (CI uses -- -D warnings)
 ```
 
-- 32 chapters with Cargo.toml, 96+ example files total
-- All use `edition = "2024"`, minimum Rust 1.85+
-- 5-projects/ is docs-only (no Cargo projects)
+**Cargo.toml naming**: `chapter-<two-digit-number>-<topic>` (e.g., `chapter-03-variables`). All use `edition = "2024"`, minimum Rust 1.85+. `Cargo.lock` is gitignored.
 
-## Verification
+**5-projects/** has no Cargo projects — each project is split into multiple markdown files (e.g., `01-项目概述.md`, `02-实现步骤.md`, `03-运行与扩展.md`, `04-测试策略.md`).
+
+## Verification Commands
 
 ```bash
-./scripts/verify-code.sh             # Scans all chapters, runs cargo check + clippy
-./scripts/check-links.sh             # Requires npm markdown-link-check
+./scripts/verify-code.sh             # Iterates all chapters: cargo check --examples + cargo clippy --examples -- -D warnings
+./scripts/check-links.sh             # Requires npm markdown-link-check; uses .markdown-link-check.json config
 ```
 
-## Markdown Conventions
+**Note**: `verify-code.sh` treats clippy warnings as errors (`-D warnings`). The CI workflow (`.github/workflows/ci.yml`) is currently a skeleton — most steps are placeholder `echo` statements.
+
+## Markdown & Code Conventions
 
 - `✅ 正确示例` / `❌ 错误示例` annotations in code blocks
-- ASCII art (`┌─┐` box style) for memory diagrams
+- ASCII art (`┌─┐` box style) for memory diagrams and syntax structure diagrams
 - All code blocks specify language (`rust`, `bash`, `toml`)
-- Chinese terms keep English reference (e.g., "所有权 Ownership")
+- Chinese terms keep English reference (e.g., "所有权 Ownership"); "Trait" and "Crate" always kept in English
 - Full rules: `docs/style-guide.md`
 
 ## Code Style for Examples
@@ -55,21 +57,12 @@ cargo clippy --examples              # Lint check
 - Error handling: `anyhow` for apps, `thiserror` for libraries
 - Avoid `unwrap()` in examples; use `expect()` with context
 - Prefer idiomatic Rust: Iterator chains, `?` operator, pattern matching
+- Example files: top-level `//!` module doc comment, `// ✅` for correct, commented-out `// ❌` for error examples
+- Run `cargo fmt` and `cargo clippy` before committing
 
-## Adding Content
+## Adding a New Chapter
 
 1. Create subdirectory in appropriate part (e.g., `3-data/09-new-topic/`)
-2. Create `Cargo.toml` (edition = "2024") and `examples/` directory
-3. Follow `docs/style-guide.md` structure templates
+2. Create `Cargo.toml` with `name = "chapter-<NN>-<topic>"`, `edition = "2024"`, and `examples/` directory
+3. Follow `docs/style-guide.md` structure templates (syntax diagram → minimal example → detailed example → comprehensive example)
 4. Update `README.md` navigation links
-
-## Key Files
-
-- `README.md` - Tutorial index with all chapter links
-- `docs/style-guide.md` - Markdown format + Rust learning strategy + example conventions
-- `CONTRIBUTING.md` - Contribution workflow
-
-## Version
-
-- Minimum Rust: 1.85+ (2024 Edition)
-- Tutorial version: 2.3
