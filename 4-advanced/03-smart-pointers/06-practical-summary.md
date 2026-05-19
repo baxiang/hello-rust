@@ -229,7 +229,7 @@ enum Stack<T> {
 
 
 
-[第 23 章：并发编程](../04-concurrency/README.md)
+[第 23 章：并发编程](../04-concurrency/)
 
 
 

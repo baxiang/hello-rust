@@ -179,7 +179,7 @@ println!("结果：{}", doubled);
 
 
 
-[第 04 章：数据类型](../04-types/README.md)
+[第 04 章：数据类型](../04-types/)
 
 
 

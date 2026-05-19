@@ -100,7 +100,7 @@ impl From<sqlx::Error> for AppError {
 
 
 
-[第 28 章：测试与文档](../09-testing/README.md)
+[第 28 章：测试与文档](../09-testing/)
 
 
 

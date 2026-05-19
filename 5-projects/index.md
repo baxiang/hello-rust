@@ -478,9 +478,9 @@
 
 ## 相关资源
 
-- [项目总览](./README)
+- [项目总览](./)
 - [测试策略](./01-todo-cli/04-testing-strategy)
-- [练习题](../exercises/README.md)
+- [练习题](../exercises/)
 
 
 ---

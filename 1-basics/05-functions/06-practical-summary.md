@@ -231,7 +231,7 @@ fn main() {
 
 
 
-[第 06 章：控制流](../06-control-flow/README.md)
+[第 06 章：控制流](../06-control-flow/)
 
 
 

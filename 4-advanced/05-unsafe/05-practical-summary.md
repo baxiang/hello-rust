@@ -300,7 +300,7 @@ cargo miri test
 
 
 
-[第 25 章：宏](../06-macros/README.md)
+[第 25 章：宏](../06-macros/)
 
 
 

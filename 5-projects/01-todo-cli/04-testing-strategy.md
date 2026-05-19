@@ -440,7 +440,7 @@ jobs:
 ## 相关资源
 
 - [Rust 测试文档](https://doc.rust-lang.org/book/ch11-00-testing.html)
-- [测试驱动开发](../../4-advanced/09-testing/README.md)
+- [测试驱动开发](../../4-advanced/09-testing/)
 - [练习题](../../exercises/28-testing)
 
 ---

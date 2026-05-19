@@ -372,7 +372,7 @@ error[E0277]: the type `str` cannot be indexed by `{integer}`
 
 
 
-[第 05 章：函数](../05-functions/README.md)
+[第 05 章：函数](../05-functions/)
 
 
 

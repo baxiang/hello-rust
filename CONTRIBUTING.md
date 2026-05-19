@@ -308,7 +308,7 @@ fn bad_example() {
 ## 相关文档
 
 - [AGENTS.md](./AGENTS) - AI 编码代理指南
-- [README.md](./README) - 教程总览
+- [README.md](./) - 教程总览
 - [docs/style-guide.md](./docs/style-guide) - 详细风格指南
 
 ---

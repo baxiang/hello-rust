@@ -110,7 +110,7 @@ cargo update
 
 
 
-[第 22 章：智能指针](../03-smart-pointers/README.md)
+[第 22 章：智能指针](../03-smart-pointers/)
 
 
 

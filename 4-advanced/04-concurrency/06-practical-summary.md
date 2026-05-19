@@ -279,7 +279,7 @@ fn main() {
 
 
 
-[第 24 章：Unsafe Rust](../05-unsafe/README.md)
+[第 24 章：Unsafe Rust](../05-unsafe/)
 
 
 

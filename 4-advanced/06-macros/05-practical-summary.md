@@ -299,7 +299,7 @@ let file = try_or_return!(File::open("test.txt"));
 
 
 
-[第 26 章：命令行工具](../07-cli/README.md)
+[第 26 章：命令行工具](../07-cli/)
 
 
 

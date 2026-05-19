@@ -390,7 +390,7 @@ fn main() {
 
 
 
-[第 07 章：所有权与借用](../../2-core/01-ownership/README.md)
+[第 07 章：所有权与借用](../../2-core/01-ownership/)
 
 
 
