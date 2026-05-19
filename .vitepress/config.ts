@@ -20,7 +20,6 @@ export default defineConfig({
       { text: '高级主题', link: '/4-advanced/01-modules/' },
       { text: '项目实战', link: '/5-projects/' },
       { text: '现代实践', link: '/6-modern/01-rust-2024/' },
-      { text: '练习题', link: '/exercises/' },
     ],
 
     sidebar,

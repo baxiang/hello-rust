@@ -60,12 +60,4 @@ export default generateSidebar([
     excludeFiles: ['Cargo.toml'],
     excludeFolders: ['examples', 'target', 'src'],
   },
-  {
-    documentRootPath: '/exercises',
-    scanStartPath: '',
-    resolvePath: '/exercises/',
-    useTitleFromFileHeading: true,
-    collapsed: true,
-    sortMenusOrderByDescending: false,
-  },
 ])
