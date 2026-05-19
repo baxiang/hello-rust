@@ -15,11 +15,6 @@
   line-height: 1.2;
 }
 
-.VPHero .text {
-  white-space: nowrap;
-  font-size: clamp(1.5rem, 4vw, 2.8rem);
-}
-
 .VPHero .actions {
   display: flex;
   gap: 16px;
