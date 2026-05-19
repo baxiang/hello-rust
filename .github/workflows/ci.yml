@@ -67,12 +67,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: 检查敏感信息
+    - name: 检查真实敏感信息
       run: |
-        echo "检查敏感信息..."
-        # 确保不包含密码、密钥等
-        ! grep -r "password" --include="*.md" . || exit 1
-        ! grep -r "secret" --include="*.md" . || exit 1
+        echo "检查真实敏感信息..."
+        # 检查真实的密钥/令牌模式，而非教程变量名
+        ! grep -rE "(sk-[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{36,}|BEGIN (RSA |EC |DSA )?PRIVATE KEY|api[_-]?key\s*[:=]\s*['\"][a-zA-Z0-9]{16,})" --include="*.md" . || exit 1
     
     - name: 检查外部链接
       run: |
