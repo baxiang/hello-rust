@@ -1,0 +1,29 @@
+.vp-playground {
+  position: relative;
+}
+
+.vp-playground-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  background: var(--vp-code-copy-code-bg);
+  color: var(--vp-code-copy-code-color);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.25s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+.vp-playground:hover .vp-playground-btn {
+  opacity: 1;
+}
+
+.vp-playground-btn:hover {
+  background: var(--vp-code-copy-code-hover-bg);
+  color: var(--vp-code-copy-code-hover-color);
+}

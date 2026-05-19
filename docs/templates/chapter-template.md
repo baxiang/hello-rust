@@ -14,8 +14,8 @@
 
 ### 需要先学习
 
-- [前置章节链接 1](../path/to/chapter.md)
-- [前置章节链接 2](../path/to/chapter.md)
+- [前置章节链接 1](../path/to/chapter)
+- [前置章节链接 2](../path/to/chapter)
 
 ### 需要掌握的概念
 
@@ -408,4 +408,4 @@ fn main() {
 
 [下一章节预告：简要描述下一章将学习的内容]
 
-➡️ [下一章节标题](../path/to/next-chapter.md)
+➡️ [下一章节标题](../path/to/next-chapter)

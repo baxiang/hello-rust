@@ -1,0 +1,160 @@
+# 快速上手
+
+&gt; 使用 Cargo 创建并运行第一个 Rust 项目，理解基本项目目录结构。
+
+## 快速上手
+
+### 创建第一个项目
+
+```bash
+cargo new hello_rust
+cd hello_rust
+cargo run
+```
+
+输出：
+
+```
+   Compiling hello_rust v0.1.0
+    Finished dev [unoptimized + debuginfo] target(s) in 0.23s
+     Running `target/debug/hello_rust`
+Hello, world!
+```
+
+### Hello World 代码
+
+**概念名称：** `fn main()` 是 Rust 程序的入口点，`println!` 是用于格式化输出的宏。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  fn main() {                          │
+│      println!("格式串", 参数...);     │
+│  }                                    │
+│                                       │
+│  fn       → 定义函数的关键字          │
+│  main     → 程序入口（固定名称）      │
+│  println! → 打印宏（! 表示宏）        │
+│  {}       → 占位符，会被参数替换      │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
+
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+
+### 详细示例
+
+```rust
+fn main() {
+    // 基本输出
+    println!("Hello, world!");
+    
+    // 带占位符的输出
+    let name = "Rust";
+    let version = "1.85";
+    println!("欢迎学习 {} {}", name, version);
+    
+    // 调试输出
+    let numbers = vec![1, 2, 3];
+    println!("{:?}", numbers);  // 输出: [1, 2, 3]
+}
+```
+
+**关键代码说明：**
+
+| 代码 | 含义 | 为什么这样写 |
+|------|------|-------------|
+| `fn main()` | 程序入口函数 | Rust 规定可执行文件必须有 main 函数 |
+| `println!` | 打印并换行的宏 | `!` 表示这是宏而非函数，编译时展开 |
+| `"{}"` | 占位符 | 会被后续参数按顺序替换，类型自动推导 |
+| `{:?}` | 调试占位符 | 用于打印实现了 `Debug` trait 的类型 |
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Hello World 解析                          │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  fn main() {                                                │
+│  │  │   │                                                   │
+│  │  │   └─ () 无参数                                        │
+│  │  └─ main 程序入口函数名                                  │
+│  └─ fn 定义函数关键字                                       │
+│                                                             │
+│      println!("Hello, world!");                            │
+│      │       │                                              │
+│      │       └─ 字符串内容                                  │
+│      └─ println! 打印宏（! 表示宏，不是函数）               │
+│  }                                                          │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 动手练习
+
+### 练习 1：修改程序
+
+编辑 `src/main.rs`：
+
+```rust
+fn main() {
+    println!("你好，Rust!");
+    println!("这是第二行");
+    println!("================");
+    println!("  Rust 学习笔记  ");
+    println!("================");
+}
+```
+
+运行：`cargo run`
+
+### 练习 2：创建库项目
+
+```bash
+cargo new my_lib --lib
+cd my_lib
+```
+
+编辑 `src/lib.rs`：
+
+```rust
+pub fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_add() {
+        assert_eq!(add(2, 3), 5);
+    }
+}
+```
+
+运行测试：`cargo test`
+
+### 可执行项目 vs 库项目
+
+| 类型 | 命令 | 入口文件 | 输出 |
+|------|------|---------|------|
+| 可执行 | `cargo new name` | `src/main.rs` | 二进制文件 |
+| 库 | `cargo new name --lib` | `src/lib.rs` | .rlib 文件 |
+## 小结
+
+- `cargo new` 创建新项目，`cargo run` 编译并运行
+- `Cargo.toml` 是项目配置文件，`src/main.rs` 是入口文件
+- `fn main()` 是程序入口，`println!` 是打印宏
+- Cargo 自动管理依赖、编译和构建流程
+
+## 练习题
+
+详见：[练习题](../../exercises/01-rust-intro)
+

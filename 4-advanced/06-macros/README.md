@@ -14,19 +14,19 @@
 ## 章节内容
 
 ### 宏概述
-- [宏概述](./01-宏概述.md) - 宏概念、宏与函数、卫生宏
+- [宏概述](./01-macros-overview) - 宏概念、宏与函数、卫生宏
 
 ### 声明宏
-- [声明宏](./02-声明宏.md) - macro_rules!、模式匹配、重复、递归
+- [声明宏](./02-declarative-macros) - macro_rules!、模式匹配、重复、递归
 
 ### 内置宏
-- [内置宏](./03-内置宏.md) - println!、vec!、format! 等常用宏
+- [内置宏](./03-built-in-macros) - println!、vec!、format! 等常用宏
 
 ### 过程宏
-- [过程宏](./04-过程宏.md) - 派生宏、属性宏、函数式宏
+- [过程宏](./04-procedural-macros) - 派生宏、属性宏、函数式宏
 
 ### 实战总结
-- [实战总结](./05-实战总结.md) - 宏设计原则与最佳实践
+- [实战总结](./05-practical-summary) - 宏设计原则与最佳实践
 
 ## 预计学习时间
 
@@ -56,3 +56,4 @@
 cargo run --example 01-macro-overview
 cargo check --examples
 ```
+

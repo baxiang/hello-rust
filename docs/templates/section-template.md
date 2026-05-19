@@ -97,4 +97,4 @@ fn main() {
 
 ## 下一步
 
-➡️ [下一节标题](./next-section.md)
+➡️ [下一节标题](./next-section)

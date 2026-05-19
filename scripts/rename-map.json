@@ -1,0 +1,283 @@
+{
+  "1-basics/01-intro": {
+    "01-为什么学习Rust.md": "01-why-rust.md",
+    "02-安装与配置.md": "02-installation.md",
+    "03-快速上手.md": "03-quick-start.md",
+    "04-常见问题.md": "04-faq.md"
+  },
+  "1-basics/02-first-program": {
+    "01-HelloWorld详解.md": "01-hello-world.md",
+    "02-变量与注释.md": "02-variables-and-comments.md",
+    "03-完整示例.md": "03-complete-example.md",
+    "04-调试与错误.md": "04-debugging-and-errors.md"
+  },
+  "1-basics/03-variables": {
+    "01-变量基础.md": "01-variable-basics.md",
+    "02-常量与静态.md": "02-const-and-static.md",
+    "03-高级特性.md": "03-advanced-features.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "1-basics/04-types": {
+    "01-类型系统概述.md": "01-type-system-overview.md",
+    "02-基本类型.md": "02-basic-types.md",
+    "03-复合类型.md": "03-compound-types.md",
+    "04-字符串类型.md": "04-string-type.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "1-basics/05-functions": {
+    "01-函数基础.md": "01-function-basics.md",
+    "02-参数与返回值.md": "02-params-and-returns.md",
+    "03-所有权与函数.md": "03-ownership-and-functions.md",
+    "04-高级函数.md": "04-advanced-functions.md",
+    "05-闭包与递归.md": "05-closures-and-recursion.md",
+    "06-实战总结.md": "06-practical-summary.md"
+  },
+  "1-basics/06-control-flow": {
+    "01-条件表达式.md": "01-conditional-expressions.md",
+    "02-循环.md": "02-loops.md",
+    "03-模式匹配.md": "03-pattern-matching.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "2-core/01-ownership": {
+    "01-所有权基础.md": "01-ownership-basics.md",
+    "02-String与移动.md": "02-string-and-move.md",
+    "03-函数与Copy.md": "03-functions-and-copy.md",
+    "04-实战总结.md": "04-practical-summary.md",
+    "05-错误诊断实战.md": "05-error-diagnosis.md",
+    "ownership-exercises.md": "exercises.md"
+  },
+  "2-core/02-references": {
+    "01-引用基础.md": "01-reference-basics.md",
+    "02-可变引用与借用规则.md": "02-mutable-refs-and-borrow-rules.md",
+    "03-引用进阶.md": "03-advanced-references.md",
+    "04-实战总结.md": "04-practical-summary.md",
+    "05-借用检查器.md": "05-borrow-checker.md"
+  },
+  "2-core": {
+    "references-exercises.md": "exercises.md"
+  },
+  "2-core/03-slices": {
+    "01-切片基础.md": "01-slice-basics.md",
+    "02-切片应用.md": "02-slice-usage.md",
+    "03-切片方法与安全.md": "03-slice-methods-and-safety.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "2-core/04-structs": {
+    "01-结构体基础.md": "01-struct-basics.md",
+    "02-结构体语法.md": "02-struct-syntax.md",
+    "03-方法与关联函数.md": "03-methods-and-associated-functions.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "2-core/05-enums": {
+    "01-枚举基础.md": "01-enum-basics.md",
+    "02-常用枚举.md": "02-common-enums.md",
+    "03-模式匹配.md": "03-pattern-matching.md",
+    "04-枚举方法.md": "04-enum-methods.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "3-data/01-collections": {
+    "01-数组基础.md": "01-array-basics.md",
+    "02-Vec详解.md": "02-vec-details.md",
+    "03-数组与Vec.md": "03-array-vs-vec.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "3-data/02-hashmap": {
+    "01-HashMap基础.md": "01-hashmap-basics.md",
+    "02-HashMap操作.md": "02-hashmap-operations.md",
+    "03-高级特性.md": "03-advanced-features.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "3-data/03-error-handling": {
+    "01-错误处理概述.md": "01-error-handling-overview.md",
+    "02-panic.md": "02-panic.md",
+    "03-Result.md": "03-result.md",
+    "04-自定义错误.md": "04-custom-errors.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "3-data/04-generics": {
+    "01-泛型基础.md": "01-generics-basics.md",
+    "02-泛型类型.md": "02-generic-types.md",
+    "03-Trait约束.md": "03-trait-bounds.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "3-data/05-traits": {
+    "01-Trait基础.md": "01-trait-basics.md",
+    "02-默认实现.md": "02-default-impl.md",
+    "03-Trait作为参数.md": "03-traits-as-params.md",
+    "04-高级特性.md": "04-advanced-features.md",
+    "05-标准库Trait.md": "05-stdlib-traits.md",
+    "06-Trait对象.md": "06-trait-objects.md",
+    "07-实战总结.md": "07-practical-summary.md",
+    "08-Trait设计模式.md": "08-trait-design-patterns.md"
+  },
+  "3-data/06-lifetimes": {
+    "01-生命周期基础.md": "01-lifetime-basics.md",
+    "02-生命周期标注.md": "02-lifetime-annotations.md",
+    "03-省略规则.md": "03-elision-rules.md",
+    "04-结构体生命周期.md": "04-struct-lifetimes.md",
+    "05-高级生命周期.md": "05-advanced-lifetimes.md",
+    "06-实战总结.md": "06-practical-summary.md",
+    "07-生命周期高级模式.md": "07-advanced-patterns.md"
+  },
+  "3-data/07-closures": {
+    "01-闭包基础.md": "01-closure-basics.md",
+    "02-类型与捕获.md": "02-types-and-capture.md",
+    "03-FnTrait.md": "03-fn-traits.md",
+    "04-闭包应用.md": "04-closure-applications.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "3-data/08-iterators": {
+    "01-迭代器基础.md": "01-iterator-basics.md",
+    "02-消费适配器.md": "02-consuming-adapters.md",
+    "03-迭代器适配器.md": "03-iterator-adapters.md",
+    "04-高级特性.md": "04-advanced-features.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "3-data": {
+    "lifetimes-exercises.md": "exercises.md",
+    "traits-exercises.md": "exercises.md"
+  },
+  "4-advanced/01-modules": {
+    "01-Crate与模块.md": "01-crates-and-modules.md",
+    "02-路径与可见性.md": "02-paths-and-visibility.md",
+    "03-use关键字.md": "03-use-keyword.md",
+    "04-实战总结.md": "04-practical-summary.md"
+  },
+  "4-advanced/02-cargo": {
+    "01-Cargo基础.md": "01-cargo-basics.md",
+    "02-Cargo配置.md": "02-cargo-config.md",
+    "03-Cargo命令.md": "03-cargo-commands.md",
+    "04-高级特性.md": "04-advanced-features.md",
+    "05-发布与优化.md": "05-publish-and-optimize.md",
+    "06-实战总结.md": "06-practical-summary.md"
+  },
+  "4-advanced/03-smart-pointers": {
+    "01-智能指针概述.md": "01-smart-pointers-overview.md",
+    "02-Box.md": "02-box.md",
+    "03-Rc.md": "03-rc.md",
+    "04-RefCell.md": "04-refcell.md",
+    "05-Arc与Weak.md": "05-arc-and-weak.md",
+    "06-实战总结.md": "06-practical-summary.md"
+  },
+  "4-advanced/04-concurrency": {
+    "01-并发基础.md": "01-concurrency-basics.md",
+    "02-线程与闭包.md": "02-threads-and-closures.md",
+    "03-消息传递.md": "03-message-passing.md",
+    "04-锁与原子.md": "04-locks-and-atomics.md",
+    "05-Send与Sync.md": "05-send-and-sync.md",
+    "06-实战总结.md": "06-practical-summary.md"
+  },
+  "4-advanced/05-unsafe": {
+    "01-Unsafe概述.md": "01-unsafe-overview.md",
+    "02-裸指针.md": "02-raw-pointers.md",
+    "03-不安全函数.md": "03-unsafe-functions.md",
+    "04-其他Unsafe.md": "04-other-unsafe.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "4-advanced/06-macros": {
+    "01-宏概述.md": "01-macros-overview.md",
+    "02-声明宏.md": "02-declarative-macros.md",
+    "03-内置宏.md": "03-built-in-macros.md",
+    "04-过程宏.md": "04-procedural-macros.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "4-advanced/07-cli": {
+    "01-CLI概述.md": "01-cli-overview.md",
+    "02-Clap基础.md": "02-clap-basics.md",
+    "03-完整示例.md": "03-complete-example.md",
+    "04-高级特性.md": "04-advanced-features.md",
+    "05-实战总结.md": "05-practical-summary.md"
+  },
+  "4-advanced/08-web": {
+    "01-Web概述.md": "01-web-overview.md",
+    "02-Axum基础.md": "02-axum-basics.md",
+    "03-请求响应.md": "03-request-response.md",
+    "04-完整示例.md": "04-complete-example.md",
+    "05-高级特性.md": "05-advanced-features.md",
+    "06-实战总结.md": "06-practical-summary.md"
+  },
+  "4-advanced/09-testing": {
+    "01-测试基础.md": "01-testing-basics.md",
+    "02-单元测试.md": "02-unit-tests.md",
+    "03-集成测试.md": "03-integration-tests.md",
+    "04-文档测试.md": "04-doc-tests.md",
+    "05-基准测试.md": "05-benchmarks.md",
+    "06-文档与覆盖率.md": "06-docs-and-coverage.md",
+    "07-实战总结.md": "07-practical-summary.md"
+  },
+  "5-projects/01-todo-cli": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-实现步骤.md": "02-implementation-steps.md",
+    "03-运行与扩展.md": "03-running-and-extending.md",
+    "04-测试策略.md": "04-testing-strategy.md"
+  },
+  "5-projects/02-file-search": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-实现步骤.md": "02-implementation-steps.md",
+    "03-运行与总结.md": "03-running-and-summary.md",
+    "04-测试策略.md": "04-testing-strategy.md"
+  },
+  "5-projects/03-rest-api": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-基础实现.md": "02-basic-implementation.md",
+    "03-高级实现.md": "03-advanced-implementation.md",
+    "04-小结.md": "04-summary.md",
+    "04-测试策略.md": "05-testing-strategy.md"
+  },
+  "5-projects/04-log-analyzer": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-实现步骤.md": "02-implementation-steps.md",
+    "03-完成实现.md": "03-completing-implementation.md",
+    "04-测试策略.md": "04-testing-strategy.md"
+  },
+  "5-projects/05-chat-room": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-基础实现.md": "02-basic-implementation.md",
+    "03-完成实现.md": "03-completing-implementation.md",
+    "04-测试策略.md": "04-testing-strategy.md",
+    "04-运行与总结.md": "05-running-and-summary.md"
+  },
+  "5-projects/06-kv-store": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-基础实现.md": "02-basic-implementation.md",
+    "03-完成实现.md": "03-completing-implementation.md",
+    "04-测试策略.md": "04-testing-strategy.md"
+  },
+  "5-projects/07-web-crawler": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-基础实现.md": "02-basic-implementation.md",
+    "03-完成实现.md": "03-completing-implementation.md",
+    "04-测试策略.md": "04-testing-strategy.md"
+  },
+  "5-projects/08-image-processor": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-基础实现.md": "02-basic-implementation.md",
+    "03-完成实现.md": "03-completing-implementation.md",
+    "04-测试策略.md": "04-testing-strategy.md"
+  },
+  "5-projects/09-interpreter": {
+    "01-项目概述.md": "01-project-overview.md",
+    "02-基础实现.md": "02-basic-implementation.md",
+    "03-完成实现.md": "03-completing-implementation.md",
+    "04-测试策略.md": "04-testing-strategy.md"
+  },
+  "6-modern/01-rust-2024": {
+    "01-Edition机制.md": "01-edition-mechanism.md",
+    "02-新语言特性.md": "02-new-language-features.md",
+    "03-现代Crate.md": "03-modern-crates.md",
+    "04-工具链.md": "04-toolchain.md",
+    "05-迁移指南.md": "05-migration-guide.md"
+  },
+  "6-modern/02-async": {
+    "01-异步基础.md": "01-async-basics.md",
+    "02-Future与async.md": "02-future-and-async.md",
+    "03-Tokio运行时.md": "03-tokio-runtime.md",
+    "04-异步模式.md": "04-async-patterns.md",
+    "05-实战案例.md": "05-practical-cases.md"
+  },
+  "6-modern/03-webassembly": {
+    "01-WASM基础.md": "01-wasm-basics.md",
+    "02-wasm-bindgen.md": "02-wasm-bindgen.md",
+    "03-实战项目.md": "03-practical-project.md"
+  }
+}

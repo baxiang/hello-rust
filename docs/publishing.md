@@ -181,7 +181,7 @@ git tag -l
 
 ---
 
-**完整更新日志：** 查看 [CHANGELOG.md](./CHANGELOG.md)
+**完整更新日志：** 查看 [CHANGELOG.md](./CHANGELOG)
 ```
 
 ---
@@ -329,7 +329,7 @@ git branch v1.x-maintenance
 
 ## 相关文档
 
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - 贡献指南
+- [CONTRIBUTING.md](../CONTRIBUTING) - 贡献指南
 - [CI/CD 配置](../.github/workflows/ci.yml) - 自动化流程
 - [GitHub Release 指南](https://docs.github.com/en/repositories/releasing-projects-on-github)
 

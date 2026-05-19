@@ -9,13 +9,13 @@
 ## 章节内容
 
 ### 第 29 章：Rust 2024 Edition
-- [Rust 2024 Edition](./01-rust-2024/README.md) - 新特性、现代 crate、工具链
+- [Rust 2024 Edition](./01-rust-2024/README) - 新特性、现代 crate、工具链
 
 ### 第 30 章：异步编程
-- [异步编程](./02-async/README.md) - Future、async/await、Tokio 运行时
+- [异步编程](./02-async/README) - Future、async/await、Tokio 运行时
 
 ### 第 31 章：WebAssembly
-- [WebAssembly](./03-webassembly/README.md) - WASM 基础、wasm-bindgen、实战项目
+- [WebAssembly](./03-webassembly/README) - WASM 基础、wasm-bindgen、实战项目
 
 ## 版本说明
 

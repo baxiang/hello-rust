@@ -14,16 +14,16 @@
 ## 章节内容
 
 ### HashMap 基础
-- [HashMap 基础](./01-HashMap基础.md) - 创建、插入、访问、删除
+- [HashMap 基础](./01-hashmap-basics) - 创建、插入、访问、删除
 
 ### HashMap 操作
-- [HashMap 操作](./02-HashMap操作.md) - 更新、遍历、查询方法
+- [HashMap 操作](./02-hashmap-operations) - 更新、遍历、查询方法
 
 ### 高级特性
-- [高级特性](./03-高级特性.md) - 哈希函数、自定义键、HashSet
+- [高级特性](./03-advanced-features) - 哈希函数、自定义键、HashSet
 
 ### 实战总结
-- [实战总结](./04-实战总结.md) - HashMap 使用场景与性能优化
+- [实战总结](./04-practical-summary) - HashMap 使用场景与性能优化
 
 ## 预计学习时间
 
@@ -53,3 +53,4 @@
 cargo run --example 01-hashmap-basics 02-hashmap-operations 03-hashmap-advanced 04-hashmap-review
 cargo check --examples
 ```
+

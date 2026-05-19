@@ -550,17 +550,17 @@ hello-rust/
 - docs/FAQ.md
 
 **章节改进：**
-- part2-core/01-ownership/（改进）
-- part2-core/ownership-exercises.md
-- part2-core/02-references/05-借用检查器.md
-- part2-core/references-exercises.md
-- part3-data/05-traits/08-Trait设计模式.md
-- part3-data/traits-exercises.md
-- part3-data/06-lifetimes/07-生命周期高级模式.md
-- part3-data/lifetimes-exercises.md
+- 2-core/01-ownership/（改进）
+- 2-core/exercises.md
+- 2-core/02-references/05-借用检查器.md
+- 2-core/exercises.md
+- 3-data/05-traits/08-Trait设计模式.md
+- 3-data/exercises.md
+- 3-data/06-lifetimes/07-生命周期高级模式.md
+- 3-data/exercises.md
 
 **现代实践：**
-- part6-modern/（19个文件）
+- 6-modern/（19个文件）
 
 **练习题：**
 - exercises/（框架 + 第1章）
@@ -583,11 +583,11 @@ hello-rust/
 
 ### README 入口（37个）
 
-- part1-basics/01-06（6个）
-- part2-core/01-05（5个）
-- part3-data/01-08（8个）
-- part4-advanced/01-09（9个）
-- part5-projects/01-09（9个）
+- 1-basics/01-06（6个）
+- 2-core/01-05（5个）
+- 3-data/01-08（8个）
+- 4-advanced/01-09（9个）
+- 5-projects/01-09（9个）
 
 ---
 

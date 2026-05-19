@@ -227,7 +227,7 @@ fn main() {
 4. 测试示例可运行
 5. 提交 Pull Request
 
-详见 [CONTRIBUTING.md](../CONTRIBUTING.md)
+详见 [CONTRIBUTING.md](../CONTRIBUTING)
 
 ---
 

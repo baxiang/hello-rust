@@ -1,0 +1,377 @@
+# 常用枚举
+
+&gt; 掌握 Option&lt;T&gt; 和 Result&lt;T, E&gt; 的用法，理解 ? 操作符如何简化错误传播。
+
+## Option 枚举
+
+### Option 语法
+
+**概念名称：** `Option<T>` 表示可能有值（Some）或无值（None）。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  enum Option<T> {                     │
+│      Some(T),  // 有值                 │
+│      None,     // 无值                 │
+│  }                                    │
+│                                       │
+│  let 有值 = Some(5);                  │
+│  let 无值: Option<i32> = None;        │
+│                                       │
+│  处理方式：                            │
+│  match opt {                          │
+│      Some(x) => 使用 x,               │
+│      None => 处理无值,                │
+│  }                                    │
+│                                       │
+│  或使用方法：                          │
+│  opt.unwrap()      // 获取值或 panic │
+│  opt.unwrap_or(0)  // 获取值或默认   │
+│  opt.map(|x| x*2)  // 转换值         │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
+
+```rust
+fn main() {
+    let maybe: Option<i32> = Some(5);
+    match maybe {
+        Some(n) => println!("值：{}", n),
+        None => println!("无值"),
+    }
+}
+```
+
+### 什么是 Option？
+
+```rust
+// Rust 标准库中的定义
+enum Option<T> {
+    Some(T),  // 有值
+    None,     // 无值
+}
+```
+
+### 为什么 Option 更好？
+
+```
+其他语言的 null 问题：
+┌─────────────────────────────────────────┐
+│  String name = null;                    │
+│  name.length();  // NullPointerException! │
+│                                         │
+│  问题：null 可以赋值给任何引用类型        │
+│  编译器不强制检查 null                   │
+└─────────────────────────────────────────┘
+
+Rust 的 Option：
+┌─────────────────────────────────────────┐
+│  let name: Option<String> = None;       │
+│                                         │
+│  // 必须处理 None 情况才能使用值         │
+│  match name {                           │
+│      Some(n) => println!("{}", n.len()),│
+│      None => println!("无名字"),         │
+│  }                                      │
+│                                         │
+│  优势：编译器强制处理，无意外 panic      │
+└─────────────────────────────────────────┘
+```
+
+### Option 基本用法
+
+```rust
+fn main() {
+    // 创建 Option
+    let some_number: Option<i32> = Some(5);
+    let no_number: Option<i32> = None;
+
+    // 显式类型标注
+    let absent_number: Option<i32> = None;
+
+    // 处理 Option
+    match some_number {
+        Some(n) => println!("数字是：{}", n),
+        None => println!("没有数字"),
+    }
+
+    // 类型推断
+    let x = Some(5);  // Option<i32>
+    let y: Option<_> = None;  // Option<T>
+}
+```
+
+### Option 常用方法
+
+```rust
+fn main() {
+    let some = Some(5);
+    let none: Option<i32> = None;
+
+    // unwrap - 获取值，没有则 panic
+    println!("{}", some.unwrap());  // 5
+    // println!("{}", none.unwrap());  // panic!
+
+    // unwrap_or - 获取值，没有则返回默认值
+    println!("{}", some.unwrap_or(0));  // 5
+    println!("{}", none.unwrap_or(0));  // 0
+
+    // unwrap_or_else - 使用闭包提供默认值
+    println!("{}", some.unwrap_or_else(|| 42));
+    println!("{}", none.unwrap_or_else(|| 42));
+
+    // is_some / is_none
+    println!("{}", some.is_some());  // true
+    println!("{}", none.is_none());  // true
+
+    // map - 转换值
+    let doubled = some.map(|x| x * 2);
+    println!("{:?}", doubled);  // Some(10)
+
+    // and_then - 链式操作
+    let result = some.and_then(|x| Some(x * 2));
+    println!("{:?}", result);  // Some(10)
+}
+```
+
+### Option 实际应用
+
+```rust
+// 查找用户
+fn find_user(id: u32) -> Option<String> {
+    match id {
+        1 => Some(String::from("Alice")),
+        2 => Some(String::from("Bob")),
+        _ => None,
+    }
+}
+
+fn main() {
+    // 处理查找结果
+    match find_user(1) {
+        Some(name) => println!("找到用户：{}", name),
+        None => println!("用户不存在"),
+    }
+
+    // 链式调用
+    let user = find_user(1)
+        .map(|name| name.to_uppercase())
+        .unwrap_or(String::from("UNKNOWN"));
+
+    println!("{}", user);  // ALICE
+}
+```
+
+
+
+
+
+
+---
+
+## Result 枚举
+
+### Result 语法
+
+**概念名称：** `Result<T, E>` 表示操作成功（Ok）或失败（Err）。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  enum Result<T, E> {                  │
+│      Ok(T),   // 成功，包含结果        │
+│      Err(E),  // 失败，包含错误        │
+│  }                                    │
+│                                       │
+│  let 成功 = Ok(5);                    │
+│  let 失败 = Err("错误信息");          │
+│                                       │
+│  处理方式：                            │
+│  match result {                       │
+│      Ok(v)  => 使用 v,                │
+│      Err(e) => 处理错误 e,            │
+│  }                                    │
+│                                       │
+│  或使用 ? 操作符传播错误：             │
+│  let v = result?;  // 失败时提前返回  │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
+
+```rust
+fn divide(a: i32, b: i32) -> Result<i32, String> {
+    if b == 0 {
+        Err("除数为零")
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() {
+    match divide(10, 2) {
+        Ok(v) => println!("结果：{}", v),
+        Err(e) => println!("错误：{}", e),
+    }
+}
+```
+
+### 什么是 Result？
+
+```rust
+// Rust 标准库中的定义
+enum Result<T, E> {
+    Ok(T),   // 成功
+    Err(E),  // 错误
+}
+```
+
+### Result 基本用法
+
+```rust
+use std::fs::File;
+use std::io::Error;
+
+fn open_file() -> Result<File, Error> {
+    File::open("hello.txt")
+}
+
+fn main() {
+    // 处理结果
+    match open_file() {
+        Ok(file) => println!("文件打开成功"),
+        Err(e) => println!("打开文件失败：{:?}", e),
+    }
+
+    // 使用 unwrap（不推荐用于生产代码）
+    // let file = open_file().unwrap();
+
+    // 使用 expect（可以自定义错误信息）
+    // let file = open_file().expect("无法打开文件");
+}
+```
+
+### Result 常用方法
+
+```rust
+fn main() {
+    let ok_result: Result<i32, &str> = Ok(5);
+    let err_result: Result<i32, &str> = Err("错误");
+
+    // is_ok / is_err
+    println!("{}", ok_result.is_ok());   // true
+    println!("{}", err_result.is_err()); // true
+
+    // ok / err - 转换为 Option
+    println!("{:?}", ok_result.ok());   // Some(5)
+    println!("{:?}", err_result.ok());  // None
+
+    // unwrap / unwrap_err
+    println!("{}", ok_result.unwrap());  // 5
+    // println!("{}", err_result.unwrap());  // panic!
+
+    // unwrap_or / unwrap_or_else
+    println!("{}", ok_result.unwrap_or(0));   // 5
+    println!("{}", err_result.unwrap_or(0));  // 0
+
+    // map - 转换成功值
+    let doubled = ok_result.map(|x| x * 2);
+    println!("{:?}", doubled);  // Ok(10)
+
+    // map_err - 转换错误值
+    let mapped = err_result.map_err(|e| format!("错误：{}", e));
+    println!("{:?}", mapped);
+
+    // and_then - 链式操作
+    let result: Result<i32, &str> = Ok(5);
+    let chained = result.and_then(|x| Ok(x * 2));
+    println!("{:?}", chained);  // Ok(10)
+}
+```
+
+### Result 实际模式
+
+```rust
+use std::fs::File;
+use std::io::{self, Read};
+
+// 模式 1：传播错误
+fn read_file_contents() -> io::Result<String> {
+    let mut file = File::open("hello.txt")?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+
+// 模式 2：错误转换
+fn parse_number(s: &str) -> Result<i32, String> {
+    s.trim().parse::<i32>()
+        .map_err(|e| format!("解析失败：{}", e))
+}
+
+// 模式 3：提供默认值
+fn get_port(config: Option<u16>) -> u16 {
+    config.unwrap_or(8080)
+}
+
+fn main() {
+    match read_file_contents() {
+        Ok(contents) => println!("文件内容：{}", contents),
+        Err(e) => println!("读取失败：{}", e),
+    }
+}
+```
+
+### ? 操作符
+
+```rust
+use std::fs::File;
+use std::io::{self, Read};
+
+// 使用?传播错误
+fn read_file() -> io::Result<String> {
+    let mut file = File::open("hello.txt")?;  // 失败时返回 Err
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+
+// 等同于
+fn read_file_verbose() -> io::Result<String> {
+    let mut file = match File::open("hello.txt") {
+        Ok(f) => f,
+        Err(e) => return Err(e),
+    };
+    let mut contents = String::new();
+    match file.read_to_string(&mut contents) {
+        Ok(_) => Ok(contents),
+        Err(e) => Err(e),
+    }
+}
+
+fn main() {
+    // main 函数也可以使用?
+    println!("文件内容：{}", read_file().unwrap_or_default());
+}
+```
+
+---
+
+## 小结
+
+- `Option<T>`：`Some(T)` 有值 / `None` 无值，替代 null，强制检查
+- `Result<T, E>`：`Ok(T)` 成功 / `Err(E)` 失败，错误处理核心
+- 常用方法：`unwrap_or()`、`map()`、`and_then()`、`is_some()`/`is_ok()`
+- `?` 操作符：自动传播错误，失败时提前返回 Err
+
+## 练习题
+
+详见：[练习题](../../exercises/11-enums)
+```
+
+
+
+
+

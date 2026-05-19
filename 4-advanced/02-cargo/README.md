@@ -14,22 +14,22 @@
 ## 章节内容
 
 ### Cargo 基础
-- [Cargo 基础](./01-Cargo基础.md) - 项目创建、项目结构、基本命令
+- [Cargo 基础](./01-cargo-basics) - 项目创建、项目结构、基本命令
 
 ### Cargo 配置
-- [Cargo 配置](./02-Cargo配置.md) - Cargo.toml 详解、依赖管理、特性配置
+- [Cargo 配置](./02-cargo-config) - Cargo.toml 详解、依赖管理、特性配置
 
 ### Cargo 命令
-- [Cargo 命令](./03-Cargo命令.md) - build、run、test、doc、publish 等
+- [Cargo 命令](./03-cargo-commands) - build、run、test、doc、publish 等
 
 ### 高级特性
-- [高级特性](./04-高级特性.md) - 工作空间、构建脚本、条件编译
+- [高级特性](./04-advanced-features) - 工作空间、构建脚本、条件编译
 
 ### 发布与优化
-- [发布与优化](./05-发布与优化.md) - 发布配置、性能优化、CI/CD
+- [发布与优化](./05-publish-and-optimize) - 发布配置、性能优化、CI/CD
 
 ### 实战总结
-- [实战总结](./06-实战总结.md) - Cargo 最佳实践
+- [实战总结](./06-practical-summary) - Cargo 最佳实践
 
 ## 预计学习时间
 
@@ -59,3 +59,4 @@
 cargo run --example 01-cargo-basics
 cargo check --examples
 ```
+

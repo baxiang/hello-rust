@@ -13,16 +13,16 @@
 ## 章节内容
 
 ### 条件表达式
-- [条件表达式](./01-条件表达式.md) - if 表达式、else if、条件赋值
+- [条件表达式](./01-conditional-expressions) - if 表达式、else if、条件赋值
 
 ### 循环
-- [循环](./02-循环.md) - loop、while、for、循环控制
+- [循环](./02-loops) - loop、while、for、循环控制
 
 ### 模式匹配
-- [模式匹配](./03-模式匹配.md) - match 表达式基础、模式绑定
+- [模式匹配](./03-pattern-matching) - match 表达式基础、模式绑定
 
 ### 实战总结
-- [实战总结](./04-实战总结.md) - 控制流最佳实践
+- [实战总结](./04-practical-summary) - 控制流最佳实践
 
 ## 预计学习时间
 
@@ -73,3 +73,4 @@ cargo run --example 04-control-flow-review
 cargo check --examples
 cargo clippy --examples
 ```
+

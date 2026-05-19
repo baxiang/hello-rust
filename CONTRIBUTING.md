@@ -133,7 +133,7 @@ git push origin feature/your-feature-name
 
 ## 文档风格指南
 
-详见 [docs/style-guide.md](./docs/style-guide.md)
+详见 [docs/style-guide.md](./docs/style-guide)
 
 ### 核心原则
 
@@ -204,7 +204,7 @@ fn invalid_code() { }
 
 ### Rust 代码风格
 
-遵循 [AGENTS.md](./AGENTS.md) 中的代码风格指南：
+遵循 [AGENTS.md](./AGENTS) 中的代码风格指南：
 
 1. 使用 `cargo fmt` 格式化
 2. 使用 `cargo clippy` 检查
@@ -307,9 +307,9 @@ fn bad_example() {
 
 ## 相关文档
 
-- [AGENTS.md](./AGENTS.md) - AI 编码代理指南
-- [README.md](./README.md) - 教程总览
-- [docs/style-guide.md](./docs/style-guide.md) - 详细风格指南
+- [AGENTS.md](./AGENTS) - AI 编码代理指南
+- [README.md](./README) - 教程总览
+- [docs/style-guide.md](./docs/style-guide) - 详细风格指南
 
 ---
 

@@ -14,16 +14,16 @@
 ## 章节内容
 
 ### 泛型基础
-- [泛型基础](./01-泛型基础.md) - 泛型概念、类型参数、泛型函数
+- [泛型基础](./01-generics-basics) - 泛型概念、类型参数、泛型函数
 
 ### 泛型类型
-- [泛型类型](./02-泛型类型.md) - 泛型结构体、泛型枚举、泛型方法
+- [泛型类型](./02-generic-types) - 泛型结构体、泛型枚举、泛型方法
 
 ### Trait 约束
-- [Trait 约束](./03-Trait约束.md) - Trait bound、多重约束、where 子句
+- [Trait 约束](./03-trait-bounds) - Trait bound、多重约束、where 子句
 
 ### 实战总结
-- [实战总结](./04-实战总结.md) - 泛型设计模式
+- [实战总结](./04-practical-summary) - 泛型设计模式
 
 ## 预计学习时间
 
@@ -53,3 +53,4 @@
 cargo run --example 01-generics-basics 02-generic-types 03-trait-bounds 04-generics-review
 cargo check --examples
 ```
+

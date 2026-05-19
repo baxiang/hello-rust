@@ -131,9 +131,9 @@
 - 工作空间
 
 ### [第 22 章：智能指针](./22-smart-pointers.md)
-- Box<T>
-- Rc<T> 与 Arc<T>
-- RefCell<T>
+- Box&lt;T&gt;
+- Rc&lt;T&gt; 与 Arc&lt;T&gt;
+- RefCell&lt;T&gt;
 
 ### [第 23 章：并发编程](./23-concurrency.md)
 - 线程创建
@@ -232,7 +232,7 @@
 3. 提供详细解答
 4. 添加到对应章节
 
-详见 [CONTRIBUTING.md](../CONTRIBUTING.md)
+详见 CONTRIBUTING.md
 
 ---
 

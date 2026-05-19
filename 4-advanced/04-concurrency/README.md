@@ -14,22 +14,22 @@
 ## 章节内容
 
 ### 并发基础
-- [并发基础](./01-并发基础.md) - 并发概念、线程创建、JoinHandle
+- [并发基础](./01-concurrency-basics) - 并发概念、线程创建、JoinHandle
 
 ### 线程与闭包
-- [线程与闭包](./02-线程与闭包.md) - move 闭包、线程捕获、线程返回值
+- [线程与闭包](./02-threads-and-closures) - move 闭包、线程捕获、线程返回值
 
 ### 消息传递
-- [消息传递](./03-消息传递.md) - channel、mpsc、同步通道
+- [消息传递](./03-message-passing) - channel、mpsc、同步通道
 
 ### 锁与原子
-- [锁与原子](./04-锁与原子.md) - Mutex、RwLock、Atomic 类型
+- [锁与原子](./04-locks-and-atomics) - Mutex、RwLock、Atomic 类型
 
 ### Send 与 Sync
-- [Send 与 Sync](./05-Send与Sync.md) - 线程安全 trait、手动实现
+- [Send 与 Sync](./05-send-and-sync) - 线程安全 trait、手动实现
 
 ### 实战总结
-- [实战总结](./06-实战总结.md) - 并发模式与性能优化
+- [实战总结](./06-practical-summary) - 并发模式与性能优化
 
 ## 预计学习时间
 
@@ -59,3 +59,4 @@
 cargo run --example 01-concurrency-basics
 cargo check --examples
 ```
+

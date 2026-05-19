@@ -14,16 +14,16 @@
 ## 章节内容
 
 ### Crate 与模块
-- [Crate 与模块](./01-Crate与模块.md) - Crate 类型、模块定义、模块树
+- [Crate 与模块](./01-crates-and-modules) - Crate 类型、模块定义、模块树
 
 ### 路径与可见性
-- [路径与可见性](./02-路径与可见性.md) - 绝对路径、相对路径、pub 关键字
+- [路径与可见性](./02-paths-and-visibility) - 绝对路径、相对路径、pub 关键字
 
 ### use 关键字
-- [use 关键字](./03-use关键字.md) - 路径引入、别名、嵌套路径
+- [use 关键字](./03-use-keyword) - 路径引入、别名、嵌套路径
 
 ### 实战总结
-- [实战总结](./04-实战总结.md) - 模块设计模式
+- [实战总结](./04-practical-summary) - 模块设计模式
 
 ## 预计学习时间
 
@@ -53,3 +53,4 @@
 cargo run --example 01-crate-module
 cargo check --examples
 ```
+

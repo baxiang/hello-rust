@@ -6,30 +6,30 @@
 
 完成本章学习后，你将掌握：
 - 理解智能指针的概念
-- 掌握 Box<T> 的堆分配
-- 使用 Rc<T> 实现多重所有权
-- 使用 RefCell<T> 实现内部可变性
-- 理解 Arc<T> 和 Weak<T> 的用途
+- 掌握 Box&lt;T&gt; 的堆分配
+- 使用 Rc&lt;T&gt; 实现多重所有权
+- 使用 RefCell&lt;T&gt; 实现内部可变性
+- 理解 Arc&lt;T&gt; 和 Weak&lt;T&gt; 的用途
 
 ## 章节内容
 
 ### 智能指针概述
-- [智能指针概述](./01-智能指针概述.md) - 智能指针概念、Deref 和 Drop trait
+- [智能指针概述](./01-smart-pointers-overview) - 智能指针概念、Deref 和 Drop trait
 
 ### Box
-- [Box](./02-Box.md) - 堆分配、递归类型、trait 对象
+- [Box](./02-box.md) - 堆分配、递归类型、trait 对象
 
 ### Rc
-- [Rc](./03-Rc.md) - 引用计数、多重所有权、Rc 与 RefCell
+- [Rc](./03-rc.md) - 引用计数、多重所有权、Rc 与 RefCell
 
 ### RefCell
-- [RefCell](./04-RefCell.md) - 内部可变性、运行时借用检查
+- [RefCell](./04-refcell.md) - 内部可变性、运行时借用检查
 
 ### Arc 与 Weak
-- [Arc 与 Weak](./05-Arc与Weak.md) - 线程安全的引用计数、弱引用
+- [Arc 与 Weak](./05-arc-and-weak) - 线程安全的引用计数、弱引用
 
 ### 实战总结
-- [实战总结](./06-实战总结.md) - 智能指针选择指南
+- [实战总结](./06-practical-summary) - 智能指针选择指南
 
 ## 预计学习时间
 
@@ -59,3 +59,4 @@
 cargo run --example 02-box
 cargo check --examples
 ```
+

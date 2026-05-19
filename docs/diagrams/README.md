@@ -6,69 +6,69 @@
 
 ### 内存管理
 
-1. [栈与堆](./01-stack-heap.md)
+1. [栈与堆](./01-stack-heap)
    - 栈内存结构
    - 堆内存结构
    - 数据存储位置
 
-2. [String 内存布局](./02-string-memory.md)
+2. [String 内存布局](./02-string-memory)
    - String 结构
    - &str 切片
    - 字符串操作
 
-3. [Vec 内存布局](./03-vec-memory.md)
+3. [Vec 内存布局](./03-vec-memory)
    - Vec 动态数组
    - 容量与长度
    - 增长策略
 
-4. [HashMap 内存布局](./04-hashmap-memory.md)
+4. [HashMap 内存布局](./04-hashmap-memory)
    - HashMap 结构
    - 哈希桶
    - 冲突处理
 
 ### 所有权系统
 
-5. [所有权移动](./05-ownership-move.md)
+5. [所有权移动](./05-ownership-move)
    - 移动语义
    - 克隆 vs 复制
    - 函数传参
 
-6. [借用与引用](./06-borrowing.md)
+6. [借用与引用](./06-borrowing)
    - 不可变借用
    - 可变借用
    - 借用规则
 
-7. [生命周期](./07-lifetimes.md)
+7. [生命周期](./07-lifetimes)
    - 生命周期标注
    - 省略规则
    - 静态生命周期
 
 ### 并发模型
 
-8. [线程模型](./08-threads.md)
+8. [线程模型](./08-threads)
    - 线程创建
    - 线程通信
    - 数据竞争
 
-9. [消息传递](./09-channels.md)
+9. [消息传递](./09-channels)
    - Channel 结构
    - mpsc 通道
    - 同步通道
 
-10. [共享状态](./10-shared-state.md)
+10. [共享状态](./10-shared-state)
     - Mutex<T>
     - Arc<T>
     - RwLock<T>
 
 ### 编译过程
 
-11. [编译流程](./11-compilation.md)
+11. [编译流程](./11-compilation)
     - 词法分析
     - 语法分析
     - 类型检查
     - 代码生成
 
-12. [借用检查器](./12-borrow-checker.md)
+12. [借用检查器](./12-borrow-checker)
     - 借用检查算法
     - 生命周期推断
     - 错误诊断

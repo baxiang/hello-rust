@@ -14,16 +14,16 @@
 ## 章节内容
 
 ### 数组基础
-- [数组基础](./01-数组基础.md) - 数组语法、初始化、访问、遍历
+- [数组基础](./01-array-basics) - 数组语法、初始化、访问、遍历
 
 ### Vec 详解
-- [Vec 详解](./02-Vec详解.md) - Vec 创建、操作、容量管理
+- [Vec 详解](./02-vec-details) - Vec 创建、操作、容量管理
 
 ### 数组与 Vec
-- [数组与 Vec](./03-数组与Vec.md) - 性能对比、转换、选择策略
+- [数组与 Vec](./03-array-vs-vec) - 性能对比、转换、选择策略
 
 ### 实战总结
-- [实战总结](./04-实战总结.md) - 集合类型最佳实践
+- [实战总结](./04-practical-summary) - 集合类型最佳实践
 
 ## 预计学习时间
 
@@ -53,3 +53,4 @@
 cargo run --example 01-array-basics 02-vec-details 03-array-vec 04-collections-review
 cargo check --examples
 ```
+

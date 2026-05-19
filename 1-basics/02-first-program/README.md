@@ -19,10 +19,10 @@
 
 | 文件 | 内容 | 说明 |
 |------|------|------|
-| [Hello World 详解](./01-HelloWorld详解.md) | 程序结构 | 逐行解析、println! 宏、格式化输出 |
-| [变量与注释](./02-变量与注释.md) | 基础语法 | let 绑定、可变性、常量、遮蔽 |
-| [完整示例](./03-完整示例.md) | 综合练习 | 信息卡片、计算器、温度转换 |
-| [调试与错误](./04-调试与错误.md) | 调试技巧 | dbg! 宏、常见错误、cargo expand |
+| [Hello World 详解](./01-hello-world) | 程序结构 | 逐行解析、println! 宏、格式化输出 |
+| [变量与注释](./02-variables-and-comments) | 基础语法 | let 绑定、可变性、常量、遮蔽 |
+| [完整示例](./03-complete-example) | 综合练习 | 信息卡片、计算器、温度转换 |
+| [调试与错误](./04-debugging-and-errors) | 调试技巧 | dbg! 宏、常见错误、cargo expand |
 
 ---
 
@@ -88,3 +88,4 @@ cargo check --examples
 # Clippy 检查
 cargo clippy --examples
 ```
+

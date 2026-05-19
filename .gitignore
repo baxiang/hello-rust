@@ -8,3 +8,6 @@ target/
 Cargo.lock
 .qwen/
 .claude/
+node_modules/
+.vitepress/dist/
+.vitepress/cache/

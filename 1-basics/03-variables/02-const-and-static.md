@@ -1,0 +1,179 @@
+# 常量与静态变量
+
+&gt; 学习 const 与 static 的区别，理解编译期常量与全局静态变量的使用场景。
+
+## 常量
+
+### const 关键字
+
+**概念名称：** `const` 用于声明编译期常量。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  const 常量名: 类型 = 值;              │
+│    ↑     ↑      ↑    ↑               │
+│   关键字 名字  必须标注 常量表达式      │
+│                                       │
+│  const MAX: u32 = 100;  → 正确        │
+│  const X = 100;         → ❌ 缺少类型 │
+│  const S = String::new(); → ❌ 非常量 │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
+
+```rust
+const MAX_POINTS: u32 = 100_000;
+
+fn main() {
+    println!("最大分数：{}", MAX_POINTS);
+}
+```
+
+### 详细示例
+
+```rust
+// 常量使用 const 声明
+const MAX_POINTS: u32 = 100_000;
+
+// 常量必须标注类型
+const PI: f64 = 3.14159;
+
+// 常量可以在全局作用域
+const APP_NAME: &str = "MyApp";
+
+fn main() {
+    println!("MAX_POINTS = {}", MAX_POINTS);
+    println!("PI = {}", PI);
+    println!("APP_NAME = {}", APP_NAME);
+}
+```
+
+**关键代码说明：**
+
+| 代码 | 含义 | 为什么这样写 |
+|------|------|-------------|
+| `const MAX_POINTS: u32` | 常量声明 | 编译期确定，存储在二进制中 |
+| `100_000` | 常量表达式 | 必须是编译期可计算的值 |
+| `const APP_NAME: &str` | 全局常量 | 可在任何作用域访问 |
+
+### const vs let
+
+| 特性 | let | const |
+|------|-----|-------|
+| 可变性 | 可用 mut | 永远不可变 |
+| 类型标注 | 可推断 | 必须标注 |
+| 作用域 | 块级作用域 | 全局作用域 |
+| 初始化 | 可以是运行时 | 必须是常量表达式 |
+| 内存位置 | 栈/堆 | 通常存储在二进制中 |
+
+```rust
+// ❌ 错误：const 必须是常量表达式
+// const WRONG: String = String::new();
+
+// ✅ 正确
+const RIGHT: &str = "hello";
+```
+
+
+
+
+
+
+## 静态变量
+
+### static 关键字
+
+**概念名称：** `static` 用于声明静态变量（固定内存地址）。
+
+```
+语法结构：
+┌──────────────────────────────────────┐
+│  static 变量名: 类型 = 值;             │
+│    ↑      ↑      ↑    ↑              │
+│   关键字  名字  必须标注  常量表达式    │
+│                                       │
+│  static NAME: &str = "Rust";  → 不可变│
+│  static mut COUNTER: u32 = 0; → 可变  │
+│              ↑                        │
+│              需要 unsafe 访问          │
+└──────────────────────────────────────┘
+```
+
+### 最简示例
+
+```rust
+static LANGUAGE: &str = "Rust";
+
+fn main() {
+    println!("语言：{}", LANGUAGE);
+}
+```
+
+### 详细示例
+
+```rust
+// 静态变量使用 static 声明
+static LANGUAGE: &str = "Rust";
+
+// 可变静态变量（需要 unsafe）
+static mut COUNTER: u32 = 0;
+
+fn main() {
+    println!("LANGUAGE = {}", LANGUAGE);
+
+    // 访问可变静态变量需要 unsafe
+    unsafe {
+        COUNTER += 1;
+        println!("COUNTER = {}", COUNTER);
+    }
+}
+```
+
+**关键代码说明：**
+
+| 代码 | 含义 | 为什么这样写 |
+|------|------|-------------|
+| `static LANGUAGE` | 静态变量 | 有固定内存地址，全局唯一 |
+| `static mut COUNTER` | 可变静态变量 | 需要 unsafe，因为多线程访问不安全 |
+| `unsafe { }` | unsafe 块 | 告诉编译器"我知道风险" |
+
+### static vs const
+
+```rust
+// const：每次使用都内联
+const MAX: u32 = 100;
+
+// static：有固定内存地址
+static MIN: u32 = 0;
+
+fn main() {
+    // const 每次使用都是新值
+    let a = MAX;
+    let b = MAX;
+
+    // static 有固定地址
+    let ptr = &MIN as *const u32;
+    println!("static 地址：{:p}", ptr);
+}
+```
+
+
+
+
+
+
+
+
+## 小结
+
+- `const` 是编译期常量，必须标注类型，命名用 SCREAMING_SNAKE_CASE
+- `static` 是静态变量，在整个程序生命周期内存在
+- 优先使用 `const`；`static mut` 需要 unsafe 块
+- 常量可以在任意作用域声明，全局可见
+
+## 练习题
+
+详见：[练习题](../../exercises/03-variables)
+

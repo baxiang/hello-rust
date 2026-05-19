@@ -13,19 +13,19 @@
 ## 章节内容
 
 ### Edition 机制
-- [Edition 机制](./01-Edition机制.md) - 什么是 Edition、迁移策略、兼容性
+- [Edition 机制](./01-edition-mechanism) - 什么是 Edition、迁移策略、兼容性
 
 ### 新语言特性
-- [新语言特性](./02-新语言特性.md) - 异步闭包、impl Trait、模式匹配
+- [新语言特性](./02-new-language-features) - 异步闭包、impl Trait、模式匹配
 
 ### 现代 Crate
-- [现代 Crate](./03-现代Crate.md) - 错误处理、异步运行时、Web 框架、序列化
+- [现代 Crate](./03-modern-crates) - 错误处理、异步运行时、Web 框架、序列化
 
 ### 工具链
-- [工具链](./04-工具链.md) - rustup、cargo、rust-analyzer、IDE 集成
+- [工具链](./04-toolchain) - rustup、cargo、rust-analyzer、IDE 集成
 
 ### 迁移指南
-- [迁移指南](./05-迁移指南.md) - 从旧 Edition 迁移、自动修复、注意事项
+- [迁移指南](./05-migration-guide) - 从旧 Edition 迁移、自动修复、注意事项
 
 ## 预计学习时间
 
@@ -62,3 +62,4 @@
 cargo run --example 02-new-features
 cargo check --examples
 ```
+

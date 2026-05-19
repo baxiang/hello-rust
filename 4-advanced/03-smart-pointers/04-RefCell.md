@@ -1,4 +1,4 @@
-## RefCell<T>：内部可变性
+## RefCell&lt;T&gt;：内部可变性
 
 ### 什么是内部可变性
 
@@ -87,7 +87,7 @@ fn main() {
 
 ---
 
-## 组合使用：Rc<RefCell<T>>
+## 组合使用：Rc&lt;RefCell&lt;T&gt;&gt;
 
 ### 共享 + 可变
 

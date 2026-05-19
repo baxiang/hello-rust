@@ -1,6 +1,6 @@
 # 所有权练习题
 
-> **说明：** 本章节练习题已完成，位于 [part2-core/01-ownership/ownership-exercises.md](../part2-core/01-ownership/ownership-exercises.md)
+> **说明：** 本章节练习题已完成，位于 [2-core/01-ownership/exercises.md](../2-core/01-ownership/exercises.md)
 
 请点击上述链接查看完整练习题。
 
@@ -13,3 +13,4 @@
 - **挑战题：** 10题 - 综合应用与最佳实践
 
 **总计：** 20 题
+

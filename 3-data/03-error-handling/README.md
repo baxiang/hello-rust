@@ -14,19 +14,19 @@
 ## 章节内容
 
 ### 错误处理概述
-- [错误处理概述](./01-错误处理概述.md) - Rust 错误处理哲学、不可恢复错误
+- [错误处理概述](./01-error-handling-overview) - Rust 错误处理哲学、不可恢复错误
 
 ### panic
 - [panic](./02-panic.md) - panic 触发、栈展开、panic 处理
 
 ### Result
-- [Result](./03-Result.md) - Result 类型、错误传播、? 运算符
+- [Result](./03-result.md) - Result 类型、错误传播、? 运算符
 
 ### 自定义错误
-- [自定义错误](./04-自定义错误.md) - Error trait、thiserror、anyhow
+- [自定义错误](./04-custom-errors) - Error trait、thiserror、anyhow
 
 ### 实战总结
-- [实战总结](./05-实战总结.md) - 错误处理最佳实践
+- [实战总结](./05-practical-summary) - 错误处理最佳实践
 
 ## 预计学习时间
 
@@ -56,3 +56,4 @@
 cargo run --example 01-error-overview 02-panic 03-result 04-custom-errors 05-error-review
 cargo check --examples
 ```
+

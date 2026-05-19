@@ -1,6 +1,6 @@
 # Trait 练习题
 
-> **说明：** 本章节练习题已完成，位于 [part3-data/traits-exercises.md](../part3-data/traits-exercises.md)
+> **说明：** 本章节练习题已完成，位于 [3-data/exercises.md](../3-data/exercises.md)
 
 请点击上述链接查看完整练习题。
 
@@ -13,3 +13,4 @@
 - **挑战题：** Trait 对象与动态分发
 
 **总计：** 15 题
+

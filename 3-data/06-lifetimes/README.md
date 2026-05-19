@@ -14,28 +14,28 @@
 ## 章节内容
 
 ### 生命周期基础
-- [生命周期基础](./01-生命周期基础.md) - 悬垂引用、生命周期概念
+- [生命周期基础](./01-lifetime-basics) - 悬垂引用、生命周期概念
 
 ### 生命周期标注
-- [生命周期标注](./02-生命周期标注.md) - 标注语法、函数生命周期
+- [生命周期标注](./02-lifetime-annotations) - 标注语法、函数生命周期
 
 ### 省略规则
-- [省略规则](./03-省略规则.md) - 三条省略规则、何时需要标注
+- [省略规则](./03-elision-rules) - 三条省略规则、何时需要标注
 
 ### 结构体生命周期
-- [结构体生命周期](./04-结构体生命周期.md) - 结构体中的引用、生命周期约束
+- [结构体生命周期](./04-struct-lifetimes) - 结构体中的引用、生命周期约束
 
 ### 高级生命周期
-- [高级生命周期](./05-高级生命周期.md) - 'static、生命周期约束、Trait 中的生命周期
+- [高级生命周期](./05-advanced-lifetimes) - 'static、生命周期约束、Trait 中的生命周期
 
 ### 生命周期高级模式
-- [生命周期高级模式](./07-生命周期高级模式.md) - 高阶 Trait 约束、Trait 对象生命周期、实战案例
+- [生命周期高级模式](./07-advanced-patterns) - 高阶 Trait 约束、Trait 对象生命周期、实战案例
 
 ### 实战总结
-- [实战总结](./06-实战总结.md) - 生命周期常见模式、错误案例
+- [实战总结](./06-practical-summary) - 生命周期常见模式、错误案例
 
 ### 练习题
-- [生命周期练习题](../lifetimes-exercises.md) - 15 题实战练习
+- [生命周期练习题](../exercises) - 15 题实战练习
 
 ## 预计学习时间
 
@@ -54,7 +54,7 @@
 
 ## 练习题答案
 
-参见 [生命周期练习题](../lifetimes-exercises.md)。
+参见 [生命周期练习题](../exercises)。
 
 ## 常见问题
 
@@ -72,3 +72,4 @@
 cargo run --example 01-lifetime-basics 02-lifetime-annotations 03-lifetime-elision 04-struct-lifetimes 05-advanced-lifetimes 06-lifetime-review
 cargo check --examples
 ```
+

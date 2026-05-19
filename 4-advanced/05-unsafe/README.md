@@ -14,19 +14,19 @@
 ## 章节内容
 
 ### Unsafe 概述
-- [Unsafe 概述](./01-Unsafe概述.md) - unsafe 块、安全性保证、何时使用
+- [Unsafe 概述](./01-unsafe-overview) - unsafe 块、安全性保证、何时使用
 
 ### 裸指针
-- [裸指针](./02-裸指针.md) - *const T、*mut T、指针操作
+- [裸指针](./02-raw-pointers) - *const T、*mut T、指针操作
 
 ### 不安全函数
-- [不安全函数](./03-不安全函数.md) - unsafe fn、FFI、调用 C 代码
+- [不安全函数](./03-unsafe-functions) - unsafe fn、FFI、调用 C 代码
 
 ### 其他 Unsafe
-- [其他 Unsafe](./04-其他Unsafe.md) - 访问可变静态变量、实现 unsafe trait
+- [其他 Unsafe](./04-other-unsafe) - 访问可变静态变量、实现 unsafe trait
 
 ### 实战总结
-- [实战总结](./05-实战总结.md) - Unsafe 封装原则与安全抽象
+- [实战总结](./05-practical-summary) - Unsafe 封装原则与安全抽象
 
 ## 预计学习时间
 
@@ -56,3 +56,4 @@
 cargo run --example 01-unsafe-overview
 cargo check --examples
 ```
+

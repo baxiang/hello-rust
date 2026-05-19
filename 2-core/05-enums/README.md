@@ -19,11 +19,11 @@
 
 | 文件 | 内容 | 说明 |
 |------|------|------|
-| [枚举基础](./01-枚举基础.md) | 核心概念 | 为什么需要、定义语法、内存布局 |
-| [常用枚举](./02-常用枚举.md) | 标准库枚举 | Option、Result、其他常用枚举 |
-| [模式匹配](./03-模式匹配.md) | match详解 | match表达式、模式种类、匹配守卫 |
-| [枚举方法](./04-枚举方法.md) | 关联方法 | 定义方法、实现Trait |
-| [实战总结](./05-实战总结.md) | 最佳实践 | 设计模式、常见场景 |
+| [枚举基础](./01-enum-basics) | 核心概念 | 为什么需要、定义语法、内存布局 |
+| [常用枚举](./02-common-enums) | 标准库枚举 | Option、Result、其他常用枚举 |
+| [模式匹配](./03-pattern-matching) | match详解 | match表达式、模式种类、匹配守卫 |
+| [枚举方法](./04-enum-methods) | 关联方法 | 定义方法、实现Trait |
+| [实战总结](./05-practical-summary) | 最佳实践 | 设计模式、常见场景 |
 
 ---
 
@@ -75,3 +75,4 @@ cargo run --example 05-enum-review
 cargo check --examples
 cargo clippy --examples
 ```
+

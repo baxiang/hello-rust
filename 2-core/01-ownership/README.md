@@ -18,12 +18,12 @@
 
 | 文件 | 内容 | 说明 |
 |------|------|------|
-| [所有权基础](./01-所有权基础.md) | 核心规则 | 栈堆内存、三大规则、作用域 |
-| [String与移动](./02-String与移动.md) | 移动语义 | String布局、移动vs克隆 |
-| [函数与Copy](./03-函数与Copy.md) | 函数传递 | 参数传递、Copy trait详解 |
-| [实战总结](./04-实战总结.md) | 最佳实践 | 常见错误、性能优化 |
-| [错误诊断实战](./05-错误诊断实战.md) | 编译器错误解读 | 学会读懂错误信息，建立心智模型 |
-| [练习题](./ownership-exercises.md) | 20道题目 | 基础/进阶/挑战 |
+| [所有权基础](./01-ownership-basics) | 核心规则 | 栈堆内存、三大规则、作用域 |
+| [String与移动](./02-string-and-move) | 移动语义 | String布局、移动vs克隆 |
+| [函数与Copy](./03-functions-and-copy) | 函数传递 | 参数传递、Copy trait详解 |
+| [实战总结](./04-practical-summary) | 最佳实践 | 常见错误、性能优化 |
+| [错误诊断实战](./05-error-diagnosis) | 编译器错误解读 | 学会读懂错误信息，建立心智模型 |
+| [练习题](./exercises) | 20道题目 | 基础/进阶/挑战 |
 
 ---
 
@@ -70,3 +70,4 @@ cargo run --example 05-error-diagnosis
 cargo check --examples
 cargo clippy --examples
 ```
+

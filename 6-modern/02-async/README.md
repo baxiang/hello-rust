@@ -14,19 +14,19 @@
 ## 章节内容
 
 ### 异步基础
-- [异步基础](./01-异步基础.md) - 为什么需要异步、同步vs异步vs多线程
+- [异步基础](./01-async-basics) - 为什么需要异步、同步vs异步vs多线程
 
 ### Future 与 async/await
-- [Future与async](./02-Future与async.md) - Future trait、async函数、await关键字
+- [Future与async](./02-future-and-async) - Future trait、async函数、await关键字
 
 ### Tokio 运行时
-- [Tokio运行时](./03-Tokio运行时.md) - 运行时概念、任务调度、I/O驱动
+- [Tokio运行时](./03-tokio-runtime) - 运行时概念、任务调度、I/O驱动
 
 ### 异步模式
-- [异步模式](./04-异步模式.md) - 异步迭代器、通道、锁、取消和超时
+- [异步模式](./04-async-patterns) - 异步迭代器、通道、锁、取消和超时
 
 ### 实战案例
-- [实战案例](./05-实战案例.md) - HTTP客户端、文件处理、数据库操作
+- [实战案例](./05-practical-cases) - HTTP客户端、文件处理、数据库操作
 
 ## 预计学习时间
 
@@ -63,3 +63,4 @@
 cargo run --example 01-async-basics
 cargo check --examples
 ```
+

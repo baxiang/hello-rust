@@ -13,13 +13,13 @@
 ## 章节内容
 
 ### WASM 基础
-- [WASM基础](./01-WASM基础.md) - 什么是 WebAssembly、编译到 WASM、wasm-pack
+- [WASM基础](./01-wasm-basics) - 什么是 WebAssembly、编译到 WASM、wasm-pack
 
 ### wasm-bindgen
-- [wasm-bindgen](./02-wasm-bindgen.md) - JavaScript 互操作、类型转换、DOM 操作
+- [wasm-bindgen](./02-wasm-bindgen) - JavaScript 互操作、类型转换、DOM 操作
 
 ### 实战项目
-- [实战项目](./03-实战项目.md) - 图像处理 Web 应用、性能对比
+- [实战项目](./03-practical-project) - 图像处理 Web 应用、性能对比
 
 ## 预计学习时间
 
@@ -56,3 +56,4 @@
 cargo run --example 01-wasm-basics
 cargo check --examples
 ```
+

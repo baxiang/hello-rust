@@ -232,15 +232,15 @@
 
 | 项目 | 必需前置 | 可选前置 | 预计时间 | 难度 |
 |------|----------|----------|----------|------|
-| [项目一](../part5-projects/01-todo-cli/README.md) | 第 01-14 章 | 第 26 章 | 8h | ★★ |
-| [项目二](../part5-projects/02-file-search/README.md) | 第 01-14 章、第 19 章 | 第 26 章 | 10h | ★★★ |
-| [项目三](../part5-projects/03-rest-api/README.md) | 第 01-19 章、第 27 章 | 第 21 章 | 12h | ★★★ |
-| [项目四](../part5-projects/04-log-analyzer/README.md) | 第 01-19 章、第 19 章 | 第 26 章 | 10h | ★★★ |
-| [项目五](../part5-projects/05-chat-room/README.md) | 第 01-23 章、第 27 章 | 无 | 16h | ★★★★ |
-| [项目六](../part5-projects/06-kv-store/README.md) | 第 01-19 章、第 22 章 | 第 24 章 | 14h | ★★★★ |
-| [项目七](../part5-projects/07-web-crawler/README.md) | 第 01-23 章 | 第 27 章 | 12h | ★★★ |
-| [项目八](../part5-projects/08-image-processor/README.md) | 第 01-23 章 | 无 | 14h | ★★★ |
-| [项目九](../part5-projects/09-interpreter/README.md) | 第 01-25 章 | 无 | 20h | ★★★★★ |
+| [项目一](../5-projects/01-todo-cli/README) | 第 01-14 章 | 第 26 章 | 8h | ★★ |
+| [项目二](../5-projects/02-file-search/README) | 第 01-14 章、第 19 章 | 第 26 章 | 10h | ★★★ |
+| [项目三](../5-projects/03-rest-api/README) | 第 01-19 章、第 27 章 | 第 21 章 | 12h | ★★★ |
+| [项目四](../5-projects/04-log-analyzer/README) | 第 01-19 章、第 19 章 | 第 26 章 | 10h | ★★★ |
+| [项目五](../5-projects/05-chat-room/README) | 第 01-23 章、第 27 章 | 无 | 16h | ★★★★ |
+| [项目六](../5-projects/06-kv-store/README) | 第 01-19 章、第 22 章 | 第 24 章 | 14h | ★★★★ |
+| [项目七](../5-projects/07-web-crawler/README) | 第 01-23 章 | 第 27 章 | 12h | ★★★ |
+| [项目八](../5-projects/08-image-processor/README) | 第 01-23 章 | 无 | 14h | ★★★ |
+| [项目九](../5-projects/09-interpreter/README) | 第 01-25 章 | 无 | 20h | ★★★★★ |
 
 ---
 
@@ -397,6 +397,6 @@ Result            枚举、泛型           Result<T, E> 类型
 
 ## 下一步
 
-1. 根据[学习路径](./learning-paths.md)规划学习计划
-2. 查看[常见问题](./FAQ.md)解决疑惑
-3. 开始[第一章学习](../part1-basics/01-intro/README.md)
+1. 根据[学习路径](./learning-paths)规划学习计划
+2. 查看[常见问题](./FAQ)解决疑惑
+3. 开始[第一章学习](../1-basics/01-intro/README)

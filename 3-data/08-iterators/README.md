@@ -14,19 +14,19 @@
 ## 章节内容
 
 ### 迭代器基础
-- [迭代器基础](./01-迭代器基础.md) - Iterator trait、创建迭代器、next 方法
+- [迭代器基础](./01-iterator-basics) - Iterator trait、创建迭代器、next 方法
 
 ### 消费适配器
-- [消费适配器](./02-消费适配器.md) - collect、sum、fold、for_each
+- [消费适配器](./02-consuming-adapters) - collect、sum、fold、for_each
 
 ### 迭代器适配器
-- [迭代器适配器](./03-迭代器适配器.md) - map、filter、take、skip、zip 等
+- [迭代器适配器](./03-iterator-adapters) - map、filter、take、skip、zip 等
 
 ### 高级特性
-- [高级特性](./04-高级特性.md) - 自定义迭代器、IntoIterator、迭代器组合
+- [高级特性](./04-advanced-features) - 自定义迭代器、IntoIterator、迭代器组合
 
 ### 实战总结
-- [实战总结](./05-实战总结.md) - 迭代器性能优化与最佳实践
+- [实战总结](./05-practical-summary) - 迭代器性能优化与最佳实践
 
 ## 预计学习时间
 
@@ -56,3 +56,4 @@
 cargo run --example 01-iterator-basics 02-consuming-adapters 03-iterator-adapters 05-iterator-review
 cargo check --examples
 ```
+

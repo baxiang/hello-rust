@@ -14,19 +14,19 @@
 ## 章节内容
 
 ### 闭包基础
-- [闭包基础](./01-闭包基础.md) - 闭包语法、类型推断、参数和返回值
+- [闭包基础](./01-closure-basics) - 闭包语法、类型推断、参数和返回值
 
 ### 类型与捕获
-- [类型与捕获](./02-类型与捕获.md) - 捕获方式、move 关键字、类型标注
+- [类型与捕获](./02-types-and-capture) - 捕获方式、move 关键字、类型标注
 
 ### Fn Trait
-- [Fn Trait](./03-FnTrait.md) - Fn、FnMut、FnOnce 的区别与用法
+- [Fn Trait](./03-fn-traits) - Fn、FnMut、FnOnce 的区别与用法
 
 ### 闭包应用
-- [闭包应用](./04-闭包应用.md) - 迭代器方法、回调函数、惰性求值
+- [闭包应用](./04-closure-applications) - 迭代器方法、回调函数、惰性求值
 
 ### 实战总结
-- [实战总结](./05-实战总结.md) - 闭包使用场景与最佳实践
+- [实战总结](./05-practical-summary) - 闭包使用场景与最佳实践
 
 ## 预计学习时间
 
@@ -56,3 +56,4 @@
 cargo run --example 01-closure-basics 02-closure-types 03-fn-traits 04-closure-apps
 cargo check --examples
 ```
+

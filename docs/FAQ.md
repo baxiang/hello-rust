@@ -29,7 +29,7 @@
 1. 不要急于求成，前 11 章务必扎实
 2. 多动手练习，编译器是最好的老师
 3. 利用编译器错误提示学习
-4. 参见[学习路径](./learning-paths.md)规划学习
+4. 参见[学习路径](./learning-paths)规划学习
 
 ### 2. 需要其他编程语言基础吗？
 
@@ -58,7 +58,7 @@
 - 第 20-21 章（模块、Cargo）可提前
 - 第 26-28 章（CLI、Web、测试）按需选择
 
-参见[前置知识图谱](./prerequisites.md)
+参见[前置知识图谱](./prerequisites)
 
 ### 4. 学完基础后做什么？
 
@@ -1226,8 +1226,8 @@ let sum: i32 = (0..1000).filter(|x| x % 2 == 0).sum();
 
 ## 更多资源
 
-- [学习路径](./learning-paths.md) - 详细学习规划
-- [前置知识图谱](./prerequisites.md) - 知识依赖关系
+- [学习路径](./learning-paths) - 详细学习规划
+- [前置知识图谱](./prerequisites) - 知识依赖关系
 - [Rust 官方文档](https://doc.rust-lang.org/)
 - [Rust by Example](https://doc.rust-lang.org/rust-by-example/)
 - [Rust 中文社区](https://rustcc.cn/)
