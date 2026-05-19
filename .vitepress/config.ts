@@ -5,7 +5,7 @@ import { playgroundPlugin } from './theme/playground'
 const isProduction = process.env.NODE_ENV === 'production' || process.argv.includes('build')
 
 export default defineConfig({
-  title: 'Rust 教程',
+  title: '从零开始系统学习 Rust 编程',
   description: '从零开始系统学习 Rust 编程语言',
   lang: 'zh-CN',
   base: isProduction ? '/hello-rust/' : '/',

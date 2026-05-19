@@ -2,9 +2,7 @@
 layout: home
 
 hero:
-  name: "Rust 教程"
-  text: "从零开始系统学习 Rust 编程语言"
-  tagline: 编译器是免费导师，错误信息是学习线索而非障碍
+  name: "从零开始系统学习 Rust 编程"
   actions:
     - theme: brand
       text: 开始学习
