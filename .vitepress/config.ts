@@ -9,6 +9,7 @@ export default defineConfig({
   description: '从零开始系统学习 Rust 编程语言',
   lang: 'zh-CN',
   base: isProduction ? '/hello-rust/' : '/',
+  cleanUrls: true,
 
   themeConfig: {
     nav: [
