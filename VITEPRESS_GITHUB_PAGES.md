@@ -529,6 +529,19 @@ export default defineConfig({
 })
 ```
 
+### 5. 导航栏点击出现 404 (Page Not Found)
+**现象**：点击顶部导航栏（如"基础入门"），页面显示 404，但侧边栏可能正常。
+**原因**：`config.ts` 中 `nav` 的 `link` 指向了目录根路径（如 `/1-basics/`），但该目录下**没有** `README.md` 或 `index.md`。VitePress 默认将目录根路径映射为 `index.md`，若文件不存在则报 404。
+**修复**：将 `link` 指向该目录下**实际存在的第一个子章节**。
+
+```typescript
+// ❌ 错误写法：目录根没有 index.md/README.md
+{ text: '基础入门', link: '/1-basics/' },
+
+// ✅ 正确写法：指向具体存在的页面
+{ text: '基础入门', link: '/1-basics/01-intro/' },
+```
+
 ---
 
 ## 常见问题
